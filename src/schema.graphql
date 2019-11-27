@@ -9,7 +9,7 @@ type Query {
 }
 
 type EmailSignUpResponse {
-  ok: String!
+  ok: Boolean!
   error: String
   token: String
 }

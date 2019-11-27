@@ -2,16 +2,17 @@
 : Medical Sites That Can Help Patients.
 
 ## Todo
-- [x] Merge Graphql, Typescript
-- [] EmailSignUp - tmp(Details Yet...)
-- [] EmailSignIn 
-- [] GetMyProfile
-- [] EditMyProfile
-- [] CreateRecord
-- [] GetMyRecords
-- [] GetPatientRecord
-- [] GetPatientRecords
-- [] ConfirmRecord
+- [x] Merge Graphql, Typescript.
+- [x] DB Settings.
+- [] User Model.
+- [] Record Model.
+- [] EmailSignUp - tmp(Details Yet...).
+- [] EmailSignIn.
+- [] GetMyProfilee.
+- [] EditMyProfile.
+- [] CreateRecord.
+- [] GetAllRecord.
+- [] ConfirmRecord.
 
 
 ## Model
@@ -27,5 +28,6 @@
 : yarn add graphql-to-typescript merge-graphql-schemas graphql-tools
 : yarn add helmet cors morgan
 : yarn add gql-merge
-
-## Any
+: yarn add typeorm
+: yarn add dotenv
+: yarn add pg

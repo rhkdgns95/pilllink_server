@@ -1,5 +1,9 @@
 import { Options } from "graphql-yoga";
+import env from "dotenv";
+env.config();
+import { createConnection } from "typeorm";
 import app from "./app";
+import connectionOptions from "./ormConfig";
 
 const END_POINT: string = "/graphql";
 const PORT: number = 4000;
@@ -13,5 +17,10 @@ const appOptions: Options = {
 
 const conn = () => console.log(`GraphqlServer is Running to ${PORT}`);
 
-app.start(appOptions, conn);
+createConnection(connectionOptions).then(() => {
+    app.start(appOptions, conn);
+}).catch(err => {
+    console.log("DB ERROR: ", err);
+})
+
 // Error: Cannot find module 'babel-runtime/core-js/promise'

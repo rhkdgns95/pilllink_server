@@ -3,7 +3,7 @@ import { EmailSignInResponse } from "../../../graph";
 
 const resolvers: Resolvers = {
     Query: {
-        EmailSignIn: async (): Promise<EmailSignInResponse> => {
+        EmailSignIn: async (_,): Promise<EmailSignInResponse> => {
             return {
                 ok: "hi",
                 error: null,

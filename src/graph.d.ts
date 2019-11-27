@@ -1,4 +1,4 @@
-export const typeDefs = ["type EmailSignInResponse {\n  ok: String!\n  error: String\n  token: String\n}\n\ntype Query {\n  EmailSignIn: EmailSignInResponse\n}\n\ntype EmailSignUpResponse {\n  ok: String!\n  error: String\n  token: String\n}\n\nenum Gender {\n  MAN\n  WOMAN\n}\n\ntype Mutation {\n  EmailSignUp(email: String!, name: String!, password: String!, address: String!, age: String!, gender: [Gender]!): EmailSignUpResponse!\n}\n"];
+export const typeDefs = ["type EmailSignInResponse {\n  ok: String!\n  error: String\n  token: String\n}\n\ntype Query {\n  EmailSignIn: EmailSignInResponse\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\nenum Gender {\n  MAN\n  WOMAN\n}\n\ntype Mutation {\n  EmailSignUp(email: String!, name: String!, password: String!, address: String!, age: String!, gender: [Gender]!): EmailSignUpResponse!\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -27,7 +27,7 @@ export interface EmailSignUpMutationArgs {
 export type Gender = "MAN" | "WOMAN";
 
 export interface EmailSignUpResponse {
-  ok: string;
+  ok: boolean;
   error: string | null;
   token: string | null;
 }
