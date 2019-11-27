@@ -1,0 +1,9 @@
+{
+  "name": "pilllink_server",
+  "version": "1.0.0",
+  "description": "PillLink Server",
+  "main": "index.js",
+  "repository": "https://github.com/rhkdgns95/pilllink_server",
+  "author": "KKH",
+  "license": "MIT"
+}
