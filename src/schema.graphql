@@ -1,0 +1,24 @@
+type EmailSignInResponse {
+  ok: String!
+  error: String
+  token: String
+}
+
+type Query {
+  EmailSignIn: EmailSignInResponse
+}
+
+type EmailSignUpResponse {
+  ok: String!
+  error: String
+  token: String
+}
+
+enum Gender {
+  MAN
+  WOMAN
+}
+
+type Mutation {
+  EmailSignUp(email: String!, name: String!, password: String!, address: String!, age: String!, gender: [Gender]!): EmailSignUpResponse!
+}

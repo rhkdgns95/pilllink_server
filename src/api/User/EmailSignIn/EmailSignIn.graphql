@@ -1,0 +1,8 @@
+type EmailSignInResponse {
+    ok: String!
+    error: String
+    token: String
+}
+type Query {
+    EmailSignIn: EmailSignInResponse
+}
