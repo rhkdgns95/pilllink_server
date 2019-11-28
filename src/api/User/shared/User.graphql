@@ -1,0 +1,13 @@
+type User {
+    id: Int!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    age: Int!
+    gender: [Gender]!
+    nationality: String!
+    address: String!
+    createdAt: String!
+    updatedAt: String
+}

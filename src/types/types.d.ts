@@ -1,0 +1,1 @@
+type Gender = "MAN" | "WOMAN";

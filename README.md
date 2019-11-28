@@ -4,16 +4,15 @@
 ## Todo
 - [x] Merge Graphql, Typescript.
 - [x] DB Settings.
-- [] User Model.
-- [] Record Model.
+- [x] User Model.
+- [] MedicalRecord Model.
 - [] EmailSignUp - tmp(Details Yet...).
 - [] EmailSignIn.
 - [] GetMyProfilee.
 - [] EditMyProfile.
-- [] CreateRecord.
-- [] GetAllRecord.
-- [] ConfirmRecord.
-
+- [] CreateMedicalRecord.
+- [] GetAllMedicalRecord.
+- [] ConfirmMedicalRecord.
 
 ## Model
 1. User 
@@ -31,3 +30,5 @@
 : yarn add typeorm
 : yarn add dotenv
 : yarn add pg
+: yarn add class-validator
+: yarn add bcrypt-nodejs @types/bcrypt-nodejs
