@@ -2,14 +2,15 @@
 : Medical Sites That Can Help Patients.
 
 ## Todo
-- [x] Merge Graphql, Typescript.
-- [x] DB Settings.
-- [x] User Model.
-- [x] MedicalRecord Model.
-- [x] Symptom Models(8). - 다못채운 속성존재함.
-- [x] ConfirmRecord Model.
+- [x] Merge Graphql, Typescript
+- [x] DB Settings
+- [x] User Model
+- [x] MedicalRecord Model
+- [x] Symptom Models(8). - 다못채운 속성존재함
+- [x] ConfirmRecord Model
+- [x] Jsonwebtoken create and decode, jwt Middleware
+- [] EmailSignIn
 - [] EmailSignUp - tmp(Details Yet...).
-- [] EmailSignIn.
 - [] GetMyProfilee.
 - [] EditMyProfile.
 - [] CreateMedicalRecord.
@@ -34,7 +35,7 @@
 : yarn add pg
 : yarn add class-validator
 : yarn add bcrypt-nodejs @types/bcrypt-nodejs
-
+: yarn add jsonwebtoken
 
 ## Question.
 : 알러지, 임신여부, 만성질환 중첩되는 요소
