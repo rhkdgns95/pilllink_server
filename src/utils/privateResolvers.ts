@@ -1,10 +1,7 @@
-export const privateResolvers = (resolver) => (parent, args, context, info) => {
-    console.log("context: ", context);
-    try {
-        if(context.req.user) {
-        }
-    } catch(error) {
-        throw new Error(error);
+export const privateResolvers = (resolverFn) => async (parent, args, context, info): Promise<any> => {
+    if(!context.req.user) {
+        throw new Error("No JWT valid");
     }
-    return resolver(parent, args, context, info);
+    const received = await resolverFn(parent, args, context, info);
+    return received;
 }

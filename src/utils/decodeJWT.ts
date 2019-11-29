@@ -10,7 +10,6 @@ export const decodeJWT = async (token: string): Promise<undefined | User> => {
         });
         return user;
     } catch(error) {
-        console.log("Decode JWT error: ", error);
         return undefined;
     }
 }

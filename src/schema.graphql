@@ -179,6 +179,7 @@ type EmailSignInResponse {
 
 type Query {
   EmailSignIn(email: String!, password: String!): EmailSignInResponse
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type EmailSignUpResponse {
@@ -203,6 +204,12 @@ type Mutation {
   EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
 }
 
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
 type User {
   id: Int!
   firstName: String!
@@ -210,7 +217,7 @@ type User {
   email: String!
   password: String!
   age: Int!
-  medicalRecords: MedicalRecord!
+  medicalRecords: [MedicalRecord]!
   gender: Gender!
   nationality: Language!
   address: String!

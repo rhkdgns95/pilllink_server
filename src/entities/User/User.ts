@@ -60,7 +60,7 @@ class User extends BaseEntity {
     @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.user, { nullable: true })
     medicalRecords: Array<MedicalRecord>;
 
-    @CreateDateColumn() createAt: string;
+    @CreateDateColumn() createdAt: string;
 
     @UpdateDateColumn() updatedAt: string;
 
