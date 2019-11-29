@@ -11,8 +11,8 @@
 - [x] Jsonwebtoken create and decode, jwt Middleware
 - [x] EmailSignUp - tmp(Address Details).
 - [X] EmailSignIn.
-- [] GetMyProfile.
-- [] EditMyProfile.
+- [x] GetMyProfile, privateResolver - HTTP Request data User`s token.
+- [x] UpdateMyProfile.
 - [] CreateMedicalRecord.
 - [] GetAllMedicalRecord.
 - [] ConfirmMedicalRecord.
@@ -43,9 +43,9 @@
 
 
 ## DATA
-: email: kkh
+: email: kkh / pwd: qwe123123
 : token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc1MDIxMTU5fQ.AtPIdBzHPKr8hadKqLXilB2fKEZbb9CdvIzTKBv8qn0
-
+: email: test@nate.com / pwd: 1234
 
 ## Study
 - class-validator

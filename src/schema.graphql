@@ -202,6 +202,7 @@ enum Nationality {
 
 type Mutation {
   EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
+  UpdateMyProfile(firstName: String, lastName: String, age: Int, password: String, address: String): UpdateMyProfileResponse!
 }
 
 type GetMyProfileResponse {
@@ -223,4 +224,9 @@ type User {
   address: String!
   createdAt: String!
   updatedAt: String
+}
+
+type UpdateMyProfileResponse {
+  ok: Boolean!
+  error: String
 }
