@@ -1,6 +1,6 @@
-type TGender = "MAN" | "WOMAN";
-type TLanguage = "KO" | "EN" | "CH" | "FR";
-type Status = "COLD" | "COLIC" | "FEMALE" | "HANGOVER" | "OTHER" | "SKIN" | "TOOTHACHE" | "OTHER";
-type TAllergy = "NULL" | "ALLERGY_PAINKILLER" | "ALLERGY_ANTIBIOTIC" | "ALLERGY_LACTOSE";
-type TPregnant = "NULL" | "PREGNANT_TRUE";
-type TChronicDiseases = "NULL" | "CHRONIC_LIVER" | "CHRONIC_KIDNEY";
+export type TGender = "M" | "W";
+export type TLanguage = "KO" | "EN" | "CH" | "FR";
+export type TStatus = "COLD" | "COLIC" | "FEMALE" | "HANGOVER" | "HEADACHE" | "SKIN" | "TOOTHACHE" | "OTHER";
+export type TAllergy = "NULL" | "ALLERGY_PAINKILLER" | "ALLERGY_ANTIBIOTIC" | "ALLERGY_LACTOSE";
+export type TPregnant = "NULL" | "PREGNANT_TRUE";
+export type TChronicDiseases = "NULL" | "CHRONIC_LIVER" | "CHRONIC_KIDNEY";

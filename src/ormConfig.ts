@@ -1,15 +1,15 @@
 import { ConnectionOptions } from "typeorm";
 // import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
 const connectionOptions: ConnectionOptions = {
+    type: "postgres",
+    entities: ["entities/**/*.*"],
     logging: true,
     synchronize: true,
-    host: process.env.DB_HOST || "",
+    host: process.env.DB_HOST || "localhost",
     database: process.env.DB_NAME || "",
-    type: "postgres",
     port: 5432,
     username: process.env.DB_USERNAME || "",
     password: process.env.DB_PASSWORD || "",
-    entities: ["/entities/**/*.*"],
 };
 
 export default connectionOptions;

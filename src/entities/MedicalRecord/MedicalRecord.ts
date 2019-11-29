@@ -9,6 +9,7 @@ import Skin from "../Symptoms/Skin";
 import Toothache from "../Symptoms/Toothache";
 import User from "../User/User";
 import ConfirmRecord from "../ConfirmRecord/ConfirmRecord";
+import { TLanguage, TAllergy, TPregnant, TChronicDiseases, TStatus } from "../../types/types";
 
 const Language: TLanguage[] =[
     "KO",
@@ -33,16 +34,27 @@ const ChronicDiseases: TChronicDiseases[] = [
     "CHRONIC_LIVER",
     "CHRONIC_KIDNEY"
 ];
-
+const Status: TStatus[] = [
+    "COLD",
+    "COLIC",
+    "FEMALE",
+    "HANGOVER",
+    "HEADACHE",
+    "OTHER",
+    "SKIN",
+    "TOOTHACHE"
+]
 @Entity()
 class MedicalRecord extends BaseEntity {
     
-    @Column({ type: "int" })
     @PrimaryGeneratedColumn() 
     id: number;
 
     @Column({ type: "text", enum: Language })
     lang: TLanguage;
+    
+    @Column({ type: "text", enum: Status })
+    status: TStatus;
 
     @Column({ type: "text", enum: Allergy, default: "NULL" })
     allergy: TAllergy;
@@ -56,8 +68,7 @@ class MedicalRecord extends BaseEntity {
     @Column()
     symptomId: number;
 
-    @OneToOne(type => Cold || Colic || Female || Hangover || Headache || Other || Skin || Toothache,
-        commonSymptom => commonSymptom.medicalRecord)
+    @OneToOne(type => Cold || Colic || Female || Hangover || Headache || Other || Skin || Toothache, commonSymptom => commonSymptom.medicalRecord, { nullable: false })
     @JoinColumn()
     symptom: Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache;
     

@@ -9,13 +9,13 @@ enum Status {
     COLIC
     FEMALE
     HANGOVER
+    HEADACHE
     OTHER
     SKIN
     TOOTHACHE
-    OTHER
 }
 
-union Symptoms = Cold | Colic | Female | Hangover | Other | Skin | Toothache
+union Symptoms = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache
 
 enum Allergy { #알레르기
     NULL
@@ -46,6 +46,6 @@ type MedicalRecord {
     user: User!
     symptomId: Int
     symptom: Symptoms!
-    confirmRecordId: Int
-    confirmRecord: ConfirmRecord
+    confirmId: Int
+    confirm: ConfirmRecord
 }

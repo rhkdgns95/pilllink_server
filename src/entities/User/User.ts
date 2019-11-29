@@ -1,11 +1,12 @@
 import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeUpdate, BeforeInsert, OneToMany } from "typeorm";
-import { IsEmail, Max, Min } from "class-validator";
+import { IsEmail, Length } from "class-validator";
 import bcrypt from "bcrypt-nodejs";
 import MedicalRecord from "../MedicalRecord/MedicalRecord";
+import { TGender, TLanguage } from "../../types/types";
 
 const GenderAttr: TGender[] = [
-    "MAN",
-    "WOMAN"
+    "M",
+    "W"
 ];
 const Nationality: TLanguage[] = [
     "KO",
@@ -18,31 +19,35 @@ const Nationality: TLanguage[] = [
 class User extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    @Column()
     id: number;
     
-    @Column({ type: "string", enum: GenderAttr, default: "MAN" })
+    @Column({ type: "text",nullable: false,  enum: GenderAttr, default: "M" })
     gender: TGender;
 
-    @Min(1)
-    @Max(20)
     @Column({ type: "text" })
+    @Length(1, 50, {
+        groups: ["length"],
+        message: "FirstName is a string, which is 1-50 characters long."
+    })
     firstName: string;
 
-    @Min(1)
-    @Max(20)
     @Column({ type: "text" })
+    @Length(1, 50, {
+        groups: ["length"],
+        message: "LastName is a string, which is 1-50 characters long."
+    })
     lastName: string;
 
-    @IsEmail()
+    @IsEmail({}, {
+        groups: ["email"],
+        message: "Please enter a valid email format"
+    })
     @Column({ type: "text" })
     email: string;
 
     @Column({ type: "text", enum: Nationality, default: "KO" })
     nationality: TLanguage;
 
-    @Min(4)
-    @Max(255)
     @Column({ type: "text" })
     password: string;
 

@@ -9,8 +9,8 @@
 - [x] Symptom Models(8). - 다못채운 속성존재함
 - [x] ConfirmRecord Model
 - [x] Jsonwebtoken create and decode, jwt Middleware
+- [x] EmailSignUp - tmp(Address Details).
 - [] EmailSignIn
-- [] EmailSignUp - tmp(Details Yet...).
 - [] GetMyProfilee.
 - [] EditMyProfile.
 - [] CreateMedicalRecord.
@@ -39,3 +39,16 @@
 
 ## Question.
 : 알러지, 임신여부, 만성질환 중첩되는 요소
+: 유저데이터 제한조건
+
+
+## DATA
+: email: kkh
+: token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc1MDIxMTU5fQ.AtPIdBzHPKr8hadKqLXilB2fKEZbb9CdvIzTKBv8qn0
+
+
+## Study
+- class-validator
+> 생성된 객체의 validate(객체) 검증이 가능하다.
+> message를 지정하여 원하는 형식으로 메시지 출력이 가능하다.
+> 또한 groups를 지정하여 특정 속성만 검증이 가능하다.

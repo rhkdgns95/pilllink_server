@@ -4,16 +4,24 @@ type EmailSignUpResponse {
     token: String
 }
 enum Gender {
-    MAN
-    WOMAN
+    M
+    W
+}
+enum Nationality {
+    KO
+    EN
+    CH
+    FR
 }
 type Mutation {
     EmailSignUp(
         email: String!
-        name: String!
+        firstName: String!
+        lastName: String!
         password: String!
         address: String!
-        age: String!
-        gender: [Gender]!
+        age: Int!
+        gender: Gender!
+        nationality: Nationality!
     ): EmailSignUpResponse!
 }

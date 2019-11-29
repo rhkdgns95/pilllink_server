@@ -11,8 +11,8 @@ type User {
     email: String!
     password: String!
     age: Int!
-    medicalRecords: [MedicalRecord]!
-    gender: [Gender]!
+    medicalRecords: MedicalRecord!
+    gender: Gender!
     nationality: Language!
     address: String!
     createdAt: String!

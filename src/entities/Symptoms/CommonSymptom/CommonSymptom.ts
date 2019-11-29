@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from "typeorm";
+import { BaseEntity, Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne } from "typeorm";
 import MedicalRecord from "../../MedicalRecord/MedicalRecord";
 
 @Entity()
@@ -8,7 +8,7 @@ class CommonSymptom extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ nullable: true })
+    @Column()
     medicalRecordId: number;
     
     // cascade확인해보기. - 기록지웠을때도 같이 제거되는지 확인..
