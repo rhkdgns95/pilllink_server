@@ -1,0 +1,4 @@
+# 여성질환
+type Female {
+    female_tmp: Boolean #임시
+}

@@ -1,0 +1,12 @@
+# 피부질환
+type Skin {
+    id: Int!
+    skin_abrasion: Boolean! #철과상
+    skin_acne: Boolean! #여드름
+    skin_hives: Boolean! #두드러기
+    skin_eczema: Boolean! #습진
+    skin_blister: Boolean! #수포
+    skin_athletesfoot: Boolean! #무좀
+    createdAt: String!
+    updatedAt: String
+}

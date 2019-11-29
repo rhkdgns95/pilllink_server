@@ -1,0 +1,52 @@
+enum Language {
+    KO
+    EN
+    CH
+    FR
+}
+enum Status { 
+    COLD
+    COLIC
+    FEMALE
+    HANGOVER
+    OTHER
+    SKIN
+    TOOTHACHE
+    OTHER
+}
+
+union Symptoms = Cold | Colic | Female | Hangover | Other | Skin | Toothache
+
+enum Allergy { #알레르기
+    NULL
+    ALLERGY_PAINKILLER #진통제
+    ALLERGY_ANTIBIOTIC #항생제
+    ALLERGY_LACTOSE #유당
+}
+enum Pregnant { #임신여부
+    NULL
+    PREGNANT_TRUE
+}
+enum ChronicDiseases { #만성질환
+    NULL
+    CHRONIC_LIVER #간질환
+    CHRONIC_KIDNEY #신장질환
+}
+
+type MedicalRecord {
+    id: Int!
+    lang: Language!
+    status: Status!
+    # confirmRecord: ConfirmRecord!
+    createdAt: String!
+    updateAt: String
+    allergy: Allergy!
+    pregnant: Pregnant! 
+    chronicDiseases: ChronicDiseases! 
+    createdAt: String!
+    updatedAt: String
+    userId: Int!
+    user: User!
+    symptomId: Int!
+    symptoms: Symptoms!
+}

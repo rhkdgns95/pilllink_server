@@ -5,7 +5,9 @@
 - [x] Merge Graphql, Typescript.
 - [x] DB Settings.
 - [x] User Model.
-- [] MedicalRecord Model.
+- [x] MedicalRecord Model.
+- [x] Symptom Models(8). - 다못채운 속성존재함.
+- [] ConfirmRecord Model.
 - [] EmailSignUp - tmp(Details Yet...).
 - [] EmailSignIn.
 - [] GetMyProfilee.
@@ -17,7 +19,7 @@
 ## Model
 1. User 
 : 유저 [patient / doctor]
-2. Statement
+2. MedicalRecord
 : 환자 상태 기록
 
 ## Ref
@@ -32,3 +34,7 @@
 : yarn add pg
 : yarn add class-validator
 : yarn add bcrypt-nodejs @types/bcrypt-nodejs
+
+
+## Question.
+: 알러지, 임신여부, 만성질환 중첩되는 요소

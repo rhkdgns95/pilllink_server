@@ -1,0 +1,12 @@
+# 감기
+type Cold {
+    id: Int!
+    cold_cough: Boolean! #기침
+    cold_headache: Boolean! #두통
+    cold_snot: Boolean! #콧물
+    cold_throat: Boolean! #목아픔
+    cold_fever: Boolean! #열
+    cold_muscle: Boolean! #몸살
+    createdAt: String!
+    updatedAt: String
+}

@@ -1,3 +1,118 @@
+enum Language {
+  KO
+  EN
+  CH
+  FR
+}
+
+enum Status {
+  COLD
+  COLIC
+  FEMALE
+  HANGOVER
+  OTHER
+  SKIN
+  TOOTHACHE
+  OTHER
+}
+
+union Symptoms = Cold | Colic | Female | Hangover | Other | Skin | Toothache
+
+enum Allergy {
+  NULL
+  ALLERGY_PAINKILLER
+  ALLERGY_ANTIBIOTIC
+  ALLERGY_LACTOSE
+}
+
+enum Pregnant {
+  NULL
+  PREGNANT_TRUE
+}
+
+enum ChronicDiseases {
+  NULL
+  CHRONIC_LIVER
+  CHRONIC_KIDNEY
+}
+
+type MedicalRecord {
+  lang: Language!
+  status: Status!
+  symptoms: Symptoms!
+  # confirmRecord: ConfirmRecord!
+  createdAt: String!
+  updateAt: String
+  allergy: Allergy!
+  pregnant: Pregnant!
+  chronicDiseases: ChronicDiseases!
+}
+
+# 감기
+type Cold {
+  cold_cough: Boolean
+  cold_headache: Boolean
+  cold_snot: Boolean
+  cold_throat: Boolean
+  cold_fever: Boolean
+  cold_muscle: Boolean
+}
+
+# 복통
+type Colic {
+  colic_diarrhead: Boolean
+  colic_periodCramps: Boolean
+  colic_indigestion: Boolean
+  colic_constipation: Boolean
+  colic_sickness: Boolean
+  colic_heartburn: Boolean
+}
+
+# 여성질환
+type Female {
+  female_tmp: Boolean
+}
+
+# 숙취
+type Hangover {
+  hangover_headache: Boolean
+  hangover_diarrhea: Boolean
+  hangover_throwup: Boolean
+  hangover_sickness: Boolean
+  hangover_heartburn: Boolean
+}
+
+# 두통
+type Headache {
+  headache_headache: Boolean
+  headache_migraine: Boolean
+}
+
+# 기타
+type Other {
+  other_tmp: Boolean
+}
+
+# 피부질환
+type Skin {
+  skin_abrasion: Boolean
+  skin_acne: Boolean
+  skin_hives: Boolean
+  skin_eczema: Boolean
+  skin_blister: Boolean
+  skin_athletesfoot: Boolean
+}
+
+# 구강질환
+type Toothache {
+  toothache_needle: Boolean
+  toothache_stomatitis: Boolean
+  toothache_drylips: Boolean
+  toothache_badbreath: Boolean
+  toothache_gum: Boolean
+  toothache_drymouth: Boolean
+}
+
 type EmailSignInResponse {
   ok: String!
   error: String
@@ -21,4 +136,18 @@ enum Gender {
 
 type Mutation {
   EmailSignUp(email: String!, name: String!, password: String!, address: String!, age: String!, gender: [Gender]!): EmailSignUpResponse!
+}
+
+type User {
+  id: Int!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  age: Int!
+  gender: [Gender]!
+  nationality: String!
+  address: String!
+  createdAt: String!
+  updatedAt: String
 }

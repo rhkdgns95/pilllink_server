@@ -1,0 +1,7 @@
+# 기타
+type Other {
+    id: Int!
+    other_tmp: Boolean! #임시
+    createdAt: String!
+    updatedAt: String
+}

@@ -1,10 +1,17 @@
-import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeUpdate, BeforeInsert } from "typeorm";
+import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeUpdate, BeforeInsert, OneToMany } from "typeorm";
 import { IsEmail, Max, Min } from "class-validator";
 import bcrypt from "bcrypt-nodejs";
+import MedicalRecord from "../MedicalRecord/MedicalRecord";
 
-const GenderAttr: Gender[] = [
+const GenderAttr: TGender[] = [
     "MAN",
     "WOMAN"
+];
+const Nationality: TLanguage[] = [
+    "KO",
+    "EN",
+    "CH",
+    "FR"
 ];
 
 @Entity()
@@ -14,8 +21,8 @@ class User extends BaseEntity {
     @Column()
     id: number;
     
-    @Column({ type: "string", enum: GenderAttr })
-    gender: Gender;
+    @Column({ type: "string", enum: GenderAttr, default: "MAN" })
+    gender: TGender;
 
     @Min(1)
     @Max(20)
@@ -31,8 +38,8 @@ class User extends BaseEntity {
     @Column({ type: "text" })
     email: string;
 
-    @Column({ type: "text" })
-    nationality: string;
+    @Column({ type: "text", enum: Nationality, default: "KO" })
+    nationality: TLanguage;
 
     @Min(4)
     @Max(255)
@@ -45,11 +52,12 @@ class User extends BaseEntity {
     @Column({ type: "text" })
     address: string;
 
-    @CreateDateColumn()
-    createAt: string;
+    @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.user, { nullable: true })
+    medicalRecords: Array<MedicalRecord>;
 
-    @UpdateDateColumn()
-    updatedAt: string;
+    @CreateDateColumn() createAt: string;
+
+    @UpdateDateColumn() updatedAt: string;
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;

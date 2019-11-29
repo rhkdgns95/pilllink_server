@@ -1,0 +1,12 @@
+# 복통
+type Colic {
+    id: Int!
+    colic_diarrhead: Boolean! #설사
+    colic_periodCramps: Boolean! #생리통
+    colic_indigestion: Boolean! #소화불량
+    colic_constipation: Boolean! #변비
+    colic_sickness: Boolean! #메스꺼움
+    colic_heartburn: Boolean! #속쓰림
+    createdAt: String!
+    updatedAt: String
+}

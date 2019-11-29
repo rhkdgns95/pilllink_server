@@ -1,3 +1,9 @@
+enum Language {
+    KO
+    EN
+    CH
+    FR
+}
 type User {
     id: Int!
     firstName: String!
@@ -5,8 +11,9 @@ type User {
     email: String!
     password: String!
     age: Int!
+    medicalRecords: [MedicalRecord]!
     gender: [Gender]!
-    nationality: String!
+    nationality: Language!
     address: String!
     createdAt: String!
     updatedAt: String
