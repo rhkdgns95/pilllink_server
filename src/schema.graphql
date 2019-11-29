@@ -1,4 +1,17 @@
+type ConfirmRecord {
+  id: Int!
+  result: String!
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord!
+  createdAt: String!
+  updatedAt: String
+}
+
 enum Language {
+  KO
+  EN
+  CH
+  FR
   KO
   EN
   CH
@@ -37,80 +50,125 @@ enum ChronicDiseases {
 }
 
 type MedicalRecord {
+  id: Int!
   lang: Language!
   status: Status!
-  symptoms: Symptoms!
-  # confirmRecord: ConfirmRecord!
-  createdAt: String!
-  updateAt: String
   allergy: Allergy!
   pregnant: Pregnant!
   chronicDiseases: ChronicDiseases!
+  createdAt: String!
+  updatedAt: String
+  userId: Int!
+  user: User!
+  symptomId: Int
+  symptom: Symptoms!
+  confirmRecordId: Int
+  confirmRecord: ConfirmRecord
 }
 
 # 감기
 type Cold {
-  cold_cough: Boolean
-  cold_headache: Boolean
-  cold_snot: Boolean
-  cold_throat: Boolean
-  cold_fever: Boolean
-  cold_muscle: Boolean
+  id: Int!
+  cold_cough: Boolean!
+  cold_headache: Boolean!
+  cold_snot: Boolean!
+  cold_throat: Boolean!
+  cold_fever: Boolean!
+  cold_muscle: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 복통
 type Colic {
-  colic_diarrhead: Boolean
-  colic_periodCramps: Boolean
-  colic_indigestion: Boolean
-  colic_constipation: Boolean
-  colic_sickness: Boolean
-  colic_heartburn: Boolean
+  id: Int!
+  colic_diarrhead: Boolean!
+  colic_periodCramps: Boolean!
+  colic_indigestion: Boolean!
+  colic_constipation: Boolean!
+  colic_sickness: Boolean!
+  colic_heartburn: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 여성질환
 type Female {
-  female_tmp: Boolean
+  id: Int!
+  female_tmp: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 숙취
 type Hangover {
-  hangover_headache: Boolean
-  hangover_diarrhea: Boolean
-  hangover_throwup: Boolean
-  hangover_sickness: Boolean
-  hangover_heartburn: Boolean
+  id: Int!
+  hangover_headache: Boolean!
+  hangover_diarrhea: Boolean!
+  hangover_throwup: Boolean!
+  hangover_sickness: Boolean!
+  hangover_heartburn: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 두통
 type Headache {
-  headache_headache: Boolean
-  headache_migraine: Boolean
+  id: Int!
+  headache_headache: Boolean!
+  headache_migraine: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 기타
 type Other {
-  other_tmp: Boolean
+  id: Int!
+  other_tmp: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 피부질환
 type Skin {
-  skin_abrasion: Boolean
-  skin_acne: Boolean
-  skin_hives: Boolean
-  skin_eczema: Boolean
-  skin_blister: Boolean
-  skin_athletesfoot: Boolean
+  id: Int!
+  skin_abrasion: Boolean!
+  skin_acne: Boolean!
+  skin_hives: Boolean!
+  skin_eczema: Boolean!
+  skin_blister: Boolean!
+  skin_athletesfoot: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 # 구강질환
 type Toothache {
-  toothache_needle: Boolean
-  toothache_stomatitis: Boolean
-  toothache_drylips: Boolean
-  toothache_badbreath: Boolean
-  toothache_gum: Boolean
-  toothache_drymouth: Boolean
+  id: Int!
+  toothache_needle: Boolean!
+  toothache_stomatitis: Boolean!
+  toothache_drylips: Boolean!
+  toothache_badbreath: Boolean!
+  toothache_gum: Boolean!
+  toothache_drymouth: Boolean!
+  createdAt: String!
+  updatedAt: String
+  medicalRecordId: Int
+  medicalRecord: MedicalRecord
 }
 
 type EmailSignInResponse {
@@ -145,8 +203,9 @@ type User {
   email: String!
   password: String!
   age: Int!
+  medicalRecords: [MedicalRecord]!
   gender: [Gender]!
-  nationality: String!
+  nationality: Language!
   address: String!
   createdAt: String!
   updatedAt: String

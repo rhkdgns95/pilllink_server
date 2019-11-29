@@ -9,4 +9,6 @@ type Skin {
     skin_athletesfoot: Boolean! #무좀
     createdAt: String!
     updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }

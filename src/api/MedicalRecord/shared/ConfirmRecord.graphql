@@ -1,0 +1,8 @@
+type ConfirmRecord {
+    id: Int!
+    result: String!
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord!
+    createdAt: String!
+    updatedAt: String
+}

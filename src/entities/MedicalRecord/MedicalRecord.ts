@@ -1,4 +1,4 @@
-import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, OneToOne, ManyToOne } from "typeorm";
+import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, OneToOne, ManyToOne, JoinColumn } from "typeorm";
 import Cold from "../Symptoms/Cold";
 import Colic from "../Symptoms/Colic";
 import Female from "../Symptoms/Female";
@@ -8,6 +8,7 @@ import Other from "../Symptoms/Other";
 import Skin from "../Symptoms/Skin";
 import Toothache from "../Symptoms/Toothache";
 import User from "../User/User";
+import ConfirmRecord from "../ConfirmRecord/ConfirmRecord";
 
 const Language: TLanguage[] =[
     "KO",
@@ -56,9 +57,17 @@ class MedicalRecord extends BaseEntity {
     symptomId: number;
 
     @OneToOne(type => Cold || Colic || Female || Hangover || Headache || Other || Skin || Toothache,
-         commonSymptom => commonSymptom.medicalRecord)
+        commonSymptom => commonSymptom.medicalRecord)
+    @JoinColumn()
     symptom: Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache;
     
+    @Column()
+    confirmId: number;
+
+    @OneToOne(type => ConfirmRecord, confirmRecord => confirmRecord.medicalRecord)
+    @JoinColumn()
+    confirm: ConfirmRecord;
+
     @Column({ nullable: false })
     userId: number;
     

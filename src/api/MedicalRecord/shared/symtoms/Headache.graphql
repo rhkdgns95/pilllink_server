@@ -5,4 +5,6 @@ type Headache {
     headache_migraine: Boolean! #편두통
     createdAt: String!
     updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }

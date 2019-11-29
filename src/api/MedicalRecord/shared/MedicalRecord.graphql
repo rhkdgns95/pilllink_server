@@ -37,9 +37,6 @@ type MedicalRecord {
     id: Int!
     lang: Language!
     status: Status!
-    # confirmRecord: ConfirmRecord!
-    createdAt: String!
-    updateAt: String
     allergy: Allergy!
     pregnant: Pregnant! 
     chronicDiseases: ChronicDiseases! 
@@ -47,6 +44,8 @@ type MedicalRecord {
     updatedAt: String
     userId: Int!
     user: User!
-    symptomId: Int!
-    symptoms: Symptoms!
+    symptomId: Int
+    symptom: Symptoms!
+    confirmRecordId: Int
+    confirmRecord: ConfirmRecord
 }

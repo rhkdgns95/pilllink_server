@@ -7,7 +7,7 @@
 - [x] User Model.
 - [x] MedicalRecord Model.
 - [x] Symptom Models(8). - 다못채운 속성존재함.
-- [] ConfirmRecord Model.
+- [x] ConfirmRecord Model.
 - [] EmailSignUp - tmp(Details Yet...).
 - [] EmailSignIn.
 - [] GetMyProfilee.

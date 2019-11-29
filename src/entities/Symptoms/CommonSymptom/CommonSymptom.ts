@@ -13,7 +13,6 @@ class CommonSymptom extends BaseEntity {
     
     // cascade확인해보기. - 기록지웠을때도 같이 제거되는지 확인..
     @OneToOne(type => MedicalRecord, medicalRecord => medicalRecord.symptom, { nullable: true })
-    @JoinColumn()
     medicalRecord: MedicalRecord;
 
     @CreateDateColumn() createdAt: string;

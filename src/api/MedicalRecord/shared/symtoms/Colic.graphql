@@ -9,4 +9,6 @@ type Colic {
     colic_heartburn: Boolean! #속쓰림
     createdAt: String!
     updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }

@@ -9,4 +9,6 @@ type Toothache {
     toothache_drymouth: Boolean! #구강건조증
     createdAt: String!
     updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }

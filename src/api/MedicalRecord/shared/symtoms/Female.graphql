@@ -1,4 +1,9 @@
 # 여성질환
 type Female {
-    female_tmp: Boolean #임시
+    id: Int!
+    female_tmp: Boolean! #임시
+    createdAt: String!
+    updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }

@@ -9,4 +9,6 @@ type Cold {
     cold_muscle: Boolean! #몸살
     createdAt: String!
     updatedAt: String
+    medicalRecordId: Int
+    medicalRecord: MedicalRecord
 }
