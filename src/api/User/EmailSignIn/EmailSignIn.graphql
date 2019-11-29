@@ -1,8 +1,11 @@
 type EmailSignInResponse {
-    ok: String!
+    ok: Boolean!
     error: String
     token: String
 }
 type Query {
-    EmailSignIn: EmailSignInResponse
+    EmailSignIn(
+        email: String!
+        password: String!
+    ): EmailSignInResponse
 }

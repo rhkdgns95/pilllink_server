@@ -9,7 +9,7 @@ export const createJWT = (id: number): string => {
         }, secretKey);
         return token;
     } else {
-        console.log("No JWT Token");
+        console.log("No JWT");
         return "";
     }
 }

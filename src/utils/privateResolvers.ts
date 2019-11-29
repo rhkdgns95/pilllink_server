@@ -1,7 +1,8 @@
 export const privateResolvers = (resolver) => (parent, args, context, info) => {
-    console.log("DATA: ", args);
+    console.log("context: ", context);
     try {
-
+        if(context.req.user) {
+        }
     } catch(error) {
         throw new Error(error);
     }

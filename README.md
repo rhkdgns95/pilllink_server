@@ -10,8 +10,8 @@
 - [x] ConfirmRecord Model
 - [x] Jsonwebtoken create and decode, jwt Middleware
 - [x] EmailSignUp - tmp(Address Details).
-- [] EmailSignIn
-- [] GetMyProfilee.
+- [X] EmailSignIn.
+- [] GetMyProfile.
 - [] EditMyProfile.
 - [] CreateMedicalRecord.
 - [] GetAllMedicalRecord.

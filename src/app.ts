@@ -4,13 +4,20 @@ import helmet from "helmet";
 import cors from "cors";
 import schema from "./schema";
 import { Response, NextFunction } from "express";
+import User from "./entities/User/User";
+import { decodeJWT } from "./utils/decodeJWT";
 
 class App {
     public app: GraphQLServer;
     
     constructor() {
         this.app = new GraphQLServer({
-            schema
+            schema,
+            context: req => {
+                return {
+                    req: req.request
+                }
+            }
         });
         this.middlewares();
     };
@@ -21,8 +28,12 @@ class App {
         this.app.express.use(this.jwt);
     }
     private jwt = async (req, res: Response, next: NextFunction) => {
-        const id = req.get('x-jwt');
-        if(id) {
+        const token = req.get('X-JWT');
+        if(token) {
+            const user: User | undefined = await decodeJWT(token);
+            if(user) {
+                req.user = user;
+            }
         }
         next();
     }
