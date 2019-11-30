@@ -15,8 +15,7 @@
 - [x] UpdateMyProfile.
 - [x] Bug - not working.
 - [x] MedicalRecord - Modify column, CreateMedicalRecord.
-- [] CreateMedicalRecord.
-- [] GetAllMedicalRecord.
+- [x] GetMyMedicalRecords.
 - [] ConfirmMedicalRecord.
 
 ## Model

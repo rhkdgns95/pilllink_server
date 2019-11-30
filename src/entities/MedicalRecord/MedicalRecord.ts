@@ -177,6 +177,7 @@ class MedicalRecord extends BaseEntity {
     // Other - 기타
     @Column({type: 'boolean', nullable: true})
     other_tmp: boolean // 임시
+    
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
 }

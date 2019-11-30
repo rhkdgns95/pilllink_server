@@ -10,6 +10,18 @@ type Mutation {
   UpdateMyProfile(firstName: String, lastName: String, age: Int, password: String, address: String): UpdateMyProfileResponse!
 }
 
+type GetMyMedicalRecordsResponse {
+  ok: Boolean!
+  error: String
+  medicalRecords: [MedicalRecord]
+}
+
+type Query {
+  GetMyMedicalRecords: GetMyMedicalRecordsResponse!
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse
+  GetMyProfile: GetMyProfileResponse!
+}
+
 type ConfirmRecord {
   id: Int!
   result: String!
@@ -224,11 +236,6 @@ type EmailSignInResponse {
   ok: Boolean!
   error: String
   token: String
-}
-
-type Query {
-  EmailSignIn(email: String!, password: String!): EmailSignInResponse
-  GetMyProfile: GetMyProfileResponse!
 }
 
 type EmailSignUpResponse {

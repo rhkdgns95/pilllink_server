@@ -1,0 +1,9 @@
+type GetMyMedicalRecordsResponse {
+    ok: Boolean!
+    error: String
+    medicalRecords: [MedicalRecord]
+}
+
+type Query {
+    GetMyMedicalRecords: GetMyMedicalRecordsResponse!
+}
