@@ -41,8 +41,6 @@ enum Status {
   TOOTHACHE
 }
 
-union Symptom = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache
-
 enum Allergy {
   NULL
   ALLERGY_PAINKILLER
@@ -72,10 +70,49 @@ type MedicalRecord {
   updatedAt: String
   patientId: Int!
   patient: User!
-  symptomId: Int
-  symptom: Symptom!
   confirmId: Int
   confirm: ConfirmRecord
+  # Cold - 감기
+  cold_cough: Boolean
+  cold_headache: Boolean
+  cold_snot: Boolean
+  cold_throat: Boolean
+  cold_fever: Boolean
+  cold_muscle: Boolean
+  # Colic - 복통
+  colic_diarrhead: Boolean
+  colic_periodCramps: Boolean
+  colic_indigestion: Boolean
+  colic_constipation: Boolean
+  colic_sickness: Boolean
+  colic_heartburn: Boolean
+  # Female - 여성질환
+  female_tmp: Boolean
+  # Hangover - 숙취
+  hangover_headache: Boolean
+  hangover_diarrhea: Boolean
+  hangover_throwup: Boolean
+  hangover_sickness: Boolean
+  hangover_heartburn: Boolean
+  # Headache - 두통
+  headache_headache: Boolean
+  headache_migraine: Boolean
+  # Skin - 피부질환
+  skin_abrasion: Boolean
+  skin_acne: Boolean
+  skin_hives: Boolean
+  skin_eczema: Boolean
+  skin_blister: Boolean
+  skin_athletesfoot: Boolean
+  # Toothache - 구강질환
+  toothache_needle: Boolean
+  toothache_stomatitis: Boolean
+  toothache_drylips: Boolean
+  toothache_badbreath: Boolean
+  toothache_gum: Boolean
+  toothache_drymouth: Boolean
+  # Other - 기타
+  other_tmp: Boolean
 }
 
 # 감기

@@ -14,6 +14,7 @@
 - [x] GetMyProfile, privateResolver - HTTP Request data User`s token.
 - [x] UpdateMyProfile.
 - [x] Bug - not working.
+- [x] MedicalRecord - Modify column, CreateMedicalRecord.
 - [] CreateMedicalRecord.
 - [] GetAllMedicalRecord.
 - [] ConfirmMedicalRecord.
@@ -44,8 +45,8 @@
 
 
 ## DATA
-: email: kkh / pwd: qwe123123
-: token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc1MDIxMTU5fQ.AtPIdBzHPKr8hadKqLXilB2fKEZbb9CdvIzTKBv8qn0
+: email: kkh@nate.com / pwd: qwe123123
+: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc1MTAwMzAxfQ.vf5_kFslkSy-BsCvOBD6nwImW91iGdzN9doD33vyc7s
 : email: test@nate.com / pwd: 1234
 
 ## Study

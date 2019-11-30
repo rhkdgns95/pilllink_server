@@ -15,8 +15,6 @@ enum Status {
     TOOTHACHE
 }
 
-union Symptom = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache
-
 enum Allergy { #알레르기
     NULL
     ALLERGY_PAINKILLER #진통제
@@ -44,8 +42,48 @@ type MedicalRecord {
     updatedAt: String
     patientId: Int!
     patient: User!
-    symptomId: Int
-    symptom: Symptom!
     confirmId: Int
     confirm: ConfirmRecord
+
+    # Cold - 감기
+    cold_cough: Boolean #기침
+    cold_headache: Boolean #두통
+    cold_snot: Boolean #콧물
+    cold_throat: Boolean #목아픔
+    cold_fever: Boolean #열
+    cold_muscle: Boolean #몸살
+    # Colic - 복통
+    colic_diarrhead: Boolean #설사
+    colic_periodCramps: Boolean #생리통
+    colic_indigestion: Boolean #소화불량
+    colic_constipation: Boolean #변비
+    colic_sickness: Boolean #메스꺼움
+    colic_heartburn: Boolean #속쓰림
+    # Female - 여성질환
+    female_tmp: Boolean #임시
+    # Hangover - 숙취
+    hangover_headache: Boolean #두통
+    hangover_diarrhea: Boolean #설사
+    hangover_throwup: Boolean #구토
+    hangover_sickness: Boolean #메스꺼움
+    hangover_heartburn: Boolean #속쓰림
+    # Headache - 두통
+    headache_headache: Boolean #두통
+    headache_migraine: Boolean #편두통
+    # Skin - 피부질환
+    skin_abrasion: Boolean #철과상
+    skin_acne: Boolean #여드름
+    skin_hives: Boolean #두드러기
+    skin_eczema: Boolean #습진
+    skin_blister: Boolean #수포
+    skin_athletesfoot: Boolean #무좀
+    # Toothache - 구강질환
+    toothache_needle: Boolean #혓바늘
+    toothache_stomatitis: Boolean #구내염
+    toothache_drylips: Boolean #마른 입술
+    toothache_badbreath: Boolean #입냄새
+    toothache_gum: Boolean #잇몸
+    toothache_drymouth: Boolean #구강건조증
+    # Other - 기타
+    other_tmp: Boolean #임시
 }
