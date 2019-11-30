@@ -1,5 +1,7 @@
-import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, OneToOne, ManyToOne, JoinColumn } from "typeorm";
-import Cold from "../Symptoms/Cold";
+import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, OneToOne, ManyToOne, JoinTable } from "typeorm";
+import User from "../User/User";
+import ConfirmRecord from "../ConfirmRecord/ConfirmRecord";
+import { TLanguage, TAllergy, TPregnant, TChronicDiseases, TStatus } from "../../types/types";
 import Colic from "../Symptoms/Colic";
 import Female from "../Symptoms/Female";
 import Hangover from "../Symptoms/Hangover";
@@ -7,9 +9,7 @@ import Headache from "../Symptoms/Headache";
 import Other from "../Symptoms/Other";
 import Skin from "../Symptoms/Skin";
 import Toothache from "../Symptoms/Toothache";
-import User from "../User/User";
-import ConfirmRecord from "../ConfirmRecord/ConfirmRecord";
-import { TLanguage, TAllergy, TPregnant, TChronicDiseases, TStatus } from "../../types/types";
+import Cold from "../Symptoms/Cold";
 
 const Language: TLanguage[] =[
     "KO",
@@ -44,6 +44,7 @@ const Status: TStatus[] = [
     "SKIN",
     "TOOTHACHE"
 ]
+
 @Entity()
 class MedicalRecord extends BaseEntity {
     
@@ -64,26 +65,33 @@ class MedicalRecord extends BaseEntity {
 
     @Column({ type: "text", enum: ChronicDiseases, default: "NULL" })
     chronicDiseases: TChronicDiseases;
-
+    
     @Column()
     symptomId: number;
 
-    @OneToOne(type => Cold || Colic || Female || Hangover || Headache || Other || Skin || Toothache, commonSymptom => commonSymptom.medicalRecord, { nullable: false })
-    @JoinColumn()
+    @OneToOne(type => Cold, cold => cold.medicalRecord)
+    @OneToOne(type => Colic, colic => colic.medicalRecord)
+    @OneToOne(type => Female, cold => cold.medicalRecord)
+    @OneToOne(type => Hangover, cold => cold.medicalRecord)
+    @OneToOne(type => Headache, cold => cold.medicalRecord)
+    @OneToOne(type => Other, cold => cold.medicalRecord)
+    @OneToOne(type => Skin, cold => cold.medicalRecord)
+    @OneToOne(type => Toothache, cold => cold.medicalRecord)
+    @JoinTable()
     symptom: Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache;
+    
     
     @Column()
     confirmId: number;
 
     @OneToOne(type => ConfirmRecord, confirmRecord => confirmRecord.medicalRecord)
-    @JoinColumn()
     confirm: ConfirmRecord;
 
     @Column({ nullable: false })
-    userId: number;
+    patientId: number;
     
-    @ManyToOne(type => User, user => user.medicalRecords)
-    user: User;
+    @ManyToOne(type => User, user => user.medicalRecords, { nullable: false })
+    patient: User;
 
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;

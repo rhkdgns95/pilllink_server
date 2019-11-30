@@ -57,8 +57,8 @@ class User extends BaseEntity {
     @Column({ type: "text" })
     address: string;
 
-    @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.user, { nullable: true })
-    medicalRecords: Array<MedicalRecord>;
+    @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.patient)
+    medicalRecords: MedicalRecord[];
 
     @CreateDateColumn() createdAt: string;
 

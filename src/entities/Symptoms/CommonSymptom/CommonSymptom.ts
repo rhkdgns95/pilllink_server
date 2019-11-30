@@ -1,13 +1,12 @@
-import { BaseEntity, Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne } from "typeorm";
+import { BaseEntity, CreateDateColumn, UpdateDateColumn, PrimaryGeneratedColumn, OneToOne, Column } from "typeorm";
 import MedicalRecord from "../../MedicalRecord/MedicalRecord";
+// import MedicalRecord from "../../MedicalRecord/MedicalRecord";
 
-@Entity()
-class CommonSymptom extends BaseEntity {
+export class CommonSymptom extends BaseEntity {
     
-    @Column({ type: "int" })
     @PrimaryGeneratedColumn()
     id: number;
-
+    
     @Column()
     medicalRecordId: number;
     
@@ -19,5 +18,3 @@ class CommonSymptom extends BaseEntity {
     @UpdateDateColumn() updatedAt: string;
 
 }
-
-export default CommonSymptom;

@@ -1,4 +1,4 @@
-import CommonSymptom from "./CommonSymptom/CommonSymptom";
+import { CommonSymptom } from "./CommonSymptom/CommonSymptom";
 import { Column, Entity } from "typeorm";
 
 @Entity()

@@ -13,6 +13,7 @@
 - [X] EmailSignIn.
 - [x] GetMyProfile, privateResolver - HTTP Request data User`s token.
 - [x] UpdateMyProfile.
+- [x] Bug - not working.
 - [] CreateMedicalRecord.
 - [] GetAllMedicalRecord.
 - [] ConfirmMedicalRecord.
@@ -52,3 +53,5 @@
 > 생성된 객체의 validate(객체) 검증이 가능하다.
 > message를 지정하여 원하는 형식으로 메시지 출력이 가능하다.
 > 또한 groups를 지정하여 특정 속성만 검증이 가능하다.
+- Fragment 활용도
+> https://www.howtographql.com/advanced/2-more-graphql-concepts/

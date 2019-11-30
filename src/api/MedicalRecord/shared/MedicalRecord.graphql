@@ -15,7 +15,7 @@ enum Status {
     TOOTHACHE
 }
 
-union Symptoms = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache
+union Symptom = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache
 
 enum Allergy { #알레르기
     NULL
@@ -42,10 +42,10 @@ type MedicalRecord {
     chronicDiseases: ChronicDiseases! 
     createdAt: String!
     updatedAt: String
-    userId: Int!
-    user: User!
+    patientId: Int!
+    patient: User!
     symptomId: Int
-    symptom: Symptoms!
+    symptom: Symptom!
     confirmId: Int
     confirm: ConfirmRecord
 }

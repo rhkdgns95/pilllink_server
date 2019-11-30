@@ -1,12 +1,12 @@
-import CommonSymptom from "./CommonSymptom/CommonSymptom";
-import { Entity, Column } from "typeorm";
+import { Column, Entity } from "typeorm";
+import { CommonSymptom } from "./CommonSymptom/CommonSymptom";
 
 @Entity()
 class Colic extends CommonSymptom { 
 
     @Column({ type: "boolean" })
     colic_diarrhead: boolean; // 설사
-    
+
     @Column({ type: "boolean" })
     colic_periodCramps: boolean; // 생리통
     
