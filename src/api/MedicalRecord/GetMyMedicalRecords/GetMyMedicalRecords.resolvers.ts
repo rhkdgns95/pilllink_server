@@ -17,7 +17,6 @@ const resolvers: Resolvers = {
                     relations: ['patient']
                     // relations: [ 'confirm' ]
                 });
-                console.log(" medicalRecords: ", medicalRecords);
                 return {
                     ok: true,
                     error: null,

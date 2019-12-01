@@ -16,7 +16,8 @@
 - [x] Bug - not working.
 - [x] MedicalRecord - Modify column, CreateMedicalRecord.
 - [x] GetMyMedicalRecords.
-- [] ConfirmMedicalRecord.
+- [x] CreateConfirmRecord.
+- [x] UpdateConfirmRecord.
 
 ## Model
 1. User 
@@ -41,7 +42,7 @@
 ## Question.
 : 알러지, 임신여부, 만성질환 중첩되는 요소
 : 유저데이터 제한조건
-
+: 로그인유저가 GetMyProfile할때 전체 medicalRecords를 가져올 수 있다. -> 필요할때 사용하기.
 
 ## DATA
 : email: kkh@nate.com / pwd: qwe123123
@@ -55,3 +56,9 @@
 > 또한 groups를 지정하여 특정 속성만 검증이 가능하다.
 - Fragment 활용도
 > https://www.howtographql.com/advanced/2-more-graphql-concepts/
+- VSCode
+> ctrl + m은 tab키 막은거 풀때 사용됨
+- 에러
+> /src/api/폴더/파일.graphql 형식이 아니면 에러가나는데... 이유는...
+- 관리자 계정
+> 관리자계정 아이디 필요.

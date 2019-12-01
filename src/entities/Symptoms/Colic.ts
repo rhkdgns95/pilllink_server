@@ -3,7 +3,7 @@ import { CommonSymptom } from "./CommonSymptom/CommonSymptom";
 
 @Entity()
 class Colic extends CommonSymptom { 
-
+    
     @Column({ type: "boolean" })
     colic_diarrhead: boolean; // 설사
 

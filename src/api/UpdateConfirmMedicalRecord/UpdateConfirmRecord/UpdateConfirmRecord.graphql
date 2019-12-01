@@ -1,0 +1,8 @@
+type UpdateConfirmRecordResponse {
+    ok: Boolean!
+    error: String
+    confirmRecordId: Int
+}
+type Mutation {
+    UpdateConfirmRecord( confirmRecordId: Int! result: String!): UpdateConfirmRecordResponse!
+}

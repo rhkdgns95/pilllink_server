@@ -1,9 +1,9 @@
-export const typeDefs = ["type CreateMedicalRecordResponse {\n  ok: Boolean\n  error: String\n  medicalRecordId: Int\n}\n\ntype Mutation {\n  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_snot: Boolean, cold_throat: Boolean, cold_fever: Boolean, cold_muscle: Boolean, colic_diarrhead: Boolean, colic_periodCramps: Boolean, colic_indigestion: Boolean, colic_constipation: Boolean, colic_sickness: Boolean, colic_heartburn: Boolean, female_tmp: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_throwup: Boolean, hangover_sickness: Boolean, hangover_heartburn: Boolean, headache_headache: Boolean, headache_migraine: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_hives: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, other_tmp: Boolean, toothache_needle: Boolean, toothache_stomatitis: Boolean, toothache_drylips: Boolean, toothache_badbreath: Boolean, toothache_gum: Boolean, toothache_drymouth: Boolean): CreateMedicalRecordResponse!\n  EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!\n  UpdateMyProfile(firstName: String, lastName: String, age: Int, password: String, address: String): UpdateMyProfileResponse!\n}\n\ntype GetMyMedicalRecordsResponse {\n  ok: Boolean!\n  error: String\n  medicalRecords: [MedicalRecord]\n}\n\ntype Query {\n  GetMyMedicalRecords: GetMyMedicalRecordsResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype ConfirmRecord {\n  id: Int!\n  result: String!\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord!\n  createdAt: String!\n  updatedAt: String\n}\n\nenum Language {\n  KO\n  EN\n  CH\n  FR\n  KO\n  EN\n  CH\n  FR\n}\n\nenum Status {\n  COLD\n  COLIC\n  FEMALE\n  HANGOVER\n  HEADACHE\n  OTHER\n  SKIN\n  TOOTHACHE\n}\n\nenum Allergy {\n  NULL\n  ALLERGY_PAINKILLER\n  ALLERGY_ANTIBIOTIC\n  ALLERGY_LACTOSE\n}\n\nenum Pregnant {\n  NULL\n  PREGNANT_TRUE\n}\n\nenum ChronicDiseases {\n  NULL\n  CHRONIC_LIVER\n  CHRONIC_KIDNEY\n}\n\ntype MedicalRecord {\n  id: Int!\n  lang: Language!\n  status: Status!\n  allergy: Allergy!\n  pregnant: Pregnant!\n  chronicDiseases: ChronicDiseases!\n  createdAt: String!\n  updatedAt: String\n  patientId: Int!\n  patient: User!\n  confirmId: Int\n  confirm: ConfirmRecord\n  # Cold - 감기\n  cold_cough: Boolean\n  cold_headache: Boolean\n  cold_snot: Boolean\n  cold_throat: Boolean\n  cold_fever: Boolean\n  cold_muscle: Boolean\n  # Colic - 복통\n  colic_diarrhead: Boolean\n  colic_periodCramps: Boolean\n  colic_indigestion: Boolean\n  colic_constipation: Boolean\n  colic_sickness: Boolean\n  colic_heartburn: Boolean\n  # Female - 여성질환\n  female_tmp: Boolean\n  # Hangover - 숙취\n  hangover_headache: Boolean\n  hangover_diarrhea: Boolean\n  hangover_throwup: Boolean\n  hangover_sickness: Boolean\n  hangover_heartburn: Boolean\n  # Headache - 두통\n  headache_headache: Boolean\n  headache_migraine: Boolean\n  # Skin - 피부질환\n  skin_abrasion: Boolean\n  skin_acne: Boolean\n  skin_hives: Boolean\n  skin_eczema: Boolean\n  skin_blister: Boolean\n  skin_athletesfoot: Boolean\n  # Toothache - 구강질환\n  toothache_needle: Boolean\n  toothache_stomatitis: Boolean\n  toothache_drylips: Boolean\n  toothache_badbreath: Boolean\n  toothache_gum: Boolean\n  toothache_drymouth: Boolean\n  # Other - 기타\n  other_tmp: Boolean\n}\n\n# 감기\ntype Cold {\n  id: Int!\n  cold_cough: Boolean!\n  cold_headache: Boolean!\n  cold_snot: Boolean!\n  cold_throat: Boolean!\n  cold_fever: Boolean!\n  cold_muscle: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 복통\ntype Colic {\n  id: Int!\n  colic_diarrhead: Boolean!\n  colic_periodCramps: Boolean!\n  colic_indigestion: Boolean!\n  colic_constipation: Boolean!\n  colic_sickness: Boolean!\n  colic_heartburn: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 여성질환\ntype Female {\n  id: Int!\n  female_tmp: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 숙취\ntype Hangover {\n  id: Int!\n  hangover_headache: Boolean!\n  hangover_diarrhea: Boolean!\n  hangover_throwup: Boolean!\n  hangover_sickness: Boolean!\n  hangover_heartburn: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 두통\ntype Headache {\n  id: Int!\n  headache_headache: Boolean!\n  headache_migraine: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 기타\ntype Other {\n  id: Int!\n  other_tmp: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 피부질환\ntype Skin {\n  id: Int!\n  skin_abrasion: Boolean!\n  skin_acne: Boolean!\n  skin_hives: Boolean!\n  skin_eczema: Boolean!\n  skin_blister: Boolean!\n  skin_athletesfoot: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\n# 구강질환\ntype Toothache {\n  id: Int!\n  toothache_needle: Boolean!\n  toothache_stomatitis: Boolean!\n  toothache_drylips: Boolean!\n  toothache_badbreath: Boolean!\n  toothache_gum: Boolean!\n  toothache_drymouth: Boolean!\n  createdAt: String!\n  updatedAt: String\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\nenum Gender {\n  M\n  W\n}\n\nenum Nationality {\n  KO\n  EN\n  CH\n  FR\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  firstName: String!\n  lastName: String!\n  email: String!\n  password: String!\n  age: Int!\n  medicalRecords: [MedicalRecord]!\n  gender: Gender!\n  nationality: Language!\n  address: String!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype UpdateMyProfileResponse {\n  ok: Boolean!\n  error: String\n}\n"];
+export const typeDefs = ["type CreateConfirmResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype Mutation {\n  CreateConfirm(medicalRecordId: Int!, result: String!): CreateConfirmResponse!\n  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_snot: Boolean, cold_throat: Boolean, cold_fever: Boolean, cold_muscle: Boolean, colic_diarrhead: Boolean, colic_periodCramps: Boolean, colic_indigestion: Boolean, colic_constipation: Boolean, colic_sickness: Boolean, colic_heartburn: Boolean, female_tmp: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_throwup: Boolean, hangover_sickness: Boolean, hangover_heartburn: Boolean, headache_headache: Boolean, headache_migraine: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_hives: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, other_tmp: Boolean, toothache_needle: Boolean, toothache_stomatitis: Boolean, toothache_drylips: Boolean, toothache_badbreath: Boolean, toothache_gum: Boolean, toothache_drymouth: Boolean): CreateMedicalRecordResponse!\n  UpdateConfirmRecord(confirmRecordId: Int!, result: String!): UpdateConfirmRecordResponse!\n  EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!\n  UpdateMyProfile(firstName: String, lastName: String, age: Int, password: String, address: String): UpdateMyProfileResponse!\n}\n\ntype CreateMedicalRecordResponse {\n  ok: Boolean\n  error: String\n  medicalRecordId: Int\n}\n\ntype GetMyMedicalRecordsResponse {\n  ok: Boolean!\n  error: String\n  medicalRecords: [MedicalRecord]\n}\n\ntype Query {\n  GetMyMedicalRecords: GetMyMedicalRecordsResponse!\n  EmailSignIn(email: String!, password: String!): EmailSignInResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype ConfirmRecord {\n  id: Int!\n  result: String!\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord!\n  createdAt: String!\n  updatedAt: String\n}\n\nenum Language {\n  KO\n  EN\n  CH\n  FR\n  KO\n  EN\n  CH\n  FR\n}\n\nenum Status {\n  COLD\n  COLIC\n  FEMALE\n  HANGOVER\n  HEADACHE\n  OTHER\n  SKIN\n  TOOTHACHE\n}\n\nenum Allergy {\n  NULL\n  ALLERGY_PAINKILLER\n  ALLERGY_ANTIBIOTIC\n  ALLERGY_LACTOSE\n}\n\nenum Pregnant {\n  NULL\n  PREGNANT_TRUE\n}\n\nenum ChronicDiseases {\n  NULL\n  CHRONIC_LIVER\n  CHRONIC_KIDNEY\n}\n\ntype MedicalRecord {\n  id: Int!\n  lang: Language!\n  status: Status!\n  allergy: Allergy!\n  pregnant: Pregnant!\n  chronicDiseases: ChronicDiseases!\n  createdAt: String!\n  updatedAt: String\n  patientId: Int!\n  patient: User!\n  confirmId: Int\n  confirm: ConfirmRecord\n  # Cold - 감기\n  cold_cough: Boolean\n  cold_headache: Boolean\n  cold_snot: Boolean\n  cold_throat: Boolean\n  cold_fever: Boolean\n  cold_muscle: Boolean\n  # Colic - 복통\n  colic_diarrhead: Boolean\n  colic_periodCramps: Boolean\n  colic_indigestion: Boolean\n  colic_constipation: Boolean\n  colic_sickness: Boolean\n  colic_heartburn: Boolean\n  # Female - 여성질환\n  female_tmp: Boolean\n  # Hangover - 숙취\n  hangover_headache: Boolean\n  hangover_diarrhea: Boolean\n  hangover_throwup: Boolean\n  hangover_sickness: Boolean\n  hangover_heartburn: Boolean\n  # Headache - 두통\n  headache_headache: Boolean\n  headache_migraine: Boolean\n  # Skin - 피부질환\n  skin_abrasion: Boolean\n  skin_acne: Boolean\n  skin_hives: Boolean\n  skin_eczema: Boolean\n  skin_blister: Boolean\n  skin_athletesfoot: Boolean\n  # Toothache - 구강질환\n  toothache_needle: Boolean\n  toothache_stomatitis: Boolean\n  toothache_drylips: Boolean\n  toothache_badbreath: Boolean\n  toothache_gum: Boolean\n  toothache_drymouth: Boolean\n  # Other - 기타\n  other_tmp: Boolean\n}\n\ntype UpdateConfirmRecordResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\nenum Gender {\n  M\n  W\n}\n\nenum Nationality {\n  KO\n  EN\n  CH\n  FR\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype User {\n  id: Int!\n  firstName: String!\n  lastName: String!\n  email: String!\n  password: String!\n  age: Int!\n  medicalRecords: [MedicalRecord]!\n  gender: Gender!\n  nationality: Language!\n  address: String!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype UpdateMyProfileResponse {\n  ok: Boolean!\n  error: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
   GetMyMedicalRecords: GetMyMedicalRecordsResponse;
-  EmailSignIn: EmailSignInResponse | null;
+  EmailSignIn: EmailSignInResponse;
   GetMyProfile: GetMyProfileResponse;
 }
 
@@ -115,9 +115,16 @@ export interface GetMyProfileResponse {
 }
 
 export interface Mutation {
+  CreateConfirm: CreateConfirmResponse;
   CreateMedicalRecord: CreateMedicalRecordResponse;
+  UpdateConfirmRecord: UpdateConfirmRecordResponse;
   EmailSignUp: EmailSignUpResponse;
   UpdateMyProfile: UpdateMyProfileResponse;
+}
+
+export interface CreateConfirmMutationArgs {
+  medicalRecordId: number;
+  result: string;
 }
 
 export interface CreateMedicalRecordMutationArgs {
@@ -161,6 +168,11 @@ export interface CreateMedicalRecordMutationArgs {
   toothache_drymouth: boolean | null;
 }
 
+export interface UpdateConfirmRecordMutationArgs {
+  confirmRecordId: number;
+  result: string;
+}
+
 export interface EmailSignUpMutationArgs {
   email: string;
   firstName: string;
@@ -180,10 +192,22 @@ export interface UpdateMyProfileMutationArgs {
   address: string | null;
 }
 
+export interface CreateConfirmResponse {
+  ok: boolean;
+  error: string | null;
+  confirmRecordId: number | null;
+}
+
 export interface CreateMedicalRecordResponse {
   ok: boolean | null;
   error: string | null;
   medicalRecordId: number | null;
+}
+
+export interface UpdateConfirmRecordResponse {
+  ok: boolean;
+  error: string | null;
+  confirmRecordId: number | null;
 }
 
 export type Nationality = "KO" | "EN" | "CH" | "FR";
@@ -197,101 +221,4 @@ export interface EmailSignUpResponse {
 export interface UpdateMyProfileResponse {
   ok: boolean;
   error: string | null;
-}
-
-export interface Cold {
-  id: number;
-  cold_cough: boolean;
-  cold_headache: boolean;
-  cold_snot: boolean;
-  cold_throat: boolean;
-  cold_fever: boolean;
-  cold_muscle: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Colic {
-  id: number;
-  colic_diarrhead: boolean;
-  colic_periodCramps: boolean;
-  colic_indigestion: boolean;
-  colic_constipation: boolean;
-  colic_sickness: boolean;
-  colic_heartburn: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Female {
-  id: number;
-  female_tmp: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Hangover {
-  id: number;
-  hangover_headache: boolean;
-  hangover_diarrhea: boolean;
-  hangover_throwup: boolean;
-  hangover_sickness: boolean;
-  hangover_heartburn: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Headache {
-  id: number;
-  headache_headache: boolean;
-  headache_migraine: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Other {
-  id: number;
-  other_tmp: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Skin {
-  id: number;
-  skin_abrasion: boolean;
-  skin_acne: boolean;
-  skin_hives: boolean;
-  skin_eczema: boolean;
-  skin_blister: boolean;
-  skin_athletesfoot: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
-}
-
-export interface Toothache {
-  id: number;
-  toothache_needle: boolean;
-  toothache_stomatitis: boolean;
-  toothache_drylips: boolean;
-  toothache_badbreath: boolean;
-  toothache_gum: boolean;
-  toothache_drymouth: boolean;
-  createdAt: string;
-  updatedAt: string | null;
-  medicalRecordId: number | null;
-  medicalRecord: MedicalRecord | null;
 }

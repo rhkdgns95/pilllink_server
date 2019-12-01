@@ -1,0 +1,11 @@
+type CreateConfirmResponse{
+    ok: Boolean!
+    error: String
+    confirmRecordId: Int
+}
+type Mutation {
+    CreateConfirm(
+        medicalRecordId: Int!
+        result: String!
+    ): CreateConfirmResponse!
+}
