@@ -1,19 +1,21 @@
-enum Language {
+enum Nationality {
     KO
     EN
     CH
-    FR
+    US
 }
 type User {
     id: Int!
     firstName: String!
     lastName: String!
+    fullName: String
     email: String!
     password: String!
     age: Int!
     medicalRecords: [MedicalRecord]!
     gender: Gender!
-    nationality: Language!
+    isAbroad: Boolean!
+    nationality: Nationality!
     address: String!
     createdAt: String!
     updatedAt: String

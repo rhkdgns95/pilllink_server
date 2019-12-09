@@ -8,8 +8,8 @@ type Mutation {
   CreateConfirm(medicalRecordId: Int!, result: String!): CreateConfirmResponse!
   CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_snot: Boolean, cold_throat: Boolean, cold_fever: Boolean, cold_muscle: Boolean, colic_diarrhead: Boolean, colic_periodCramps: Boolean, colic_indigestion: Boolean, colic_constipation: Boolean, colic_sickness: Boolean, colic_heartburn: Boolean, female_tmp: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_throwup: Boolean, hangover_sickness: Boolean, hangover_heartburn: Boolean, headache_headache: Boolean, headache_migraine: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_hives: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, other_tmp: Boolean, toothache_needle: Boolean, toothache_stomatitis: Boolean, toothache_drylips: Boolean, toothache_badbreath: Boolean, toothache_gum: Boolean, toothache_drymouth: Boolean): CreateMedicalRecordResponse!
   UpdateConfirmRecord(confirmRecordId: Int!, result: String!): UpdateConfirmRecordResponse!
-  EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
-  UpdateMyProfile(firstName: String, lastName: String, age: Int, password: String, address: String): UpdateMyProfileResponse!
+  EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, isAbroad: Boolean!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
+  UpdateMyProfile(isAbroad: Boolean, firstName: String, lastName: String, age: Int, password: String, address: String, gender: Gender, nationality: Nationality): UpdateMyProfileResponse!
 }
 
 type CreateMedicalRecordResponse {
@@ -43,11 +43,7 @@ enum Language {
   KO
   EN
   CH
-  FR
-  KO
-  EN
-  CH
-  FR
+  US
 }
 
 enum Status {
@@ -162,7 +158,11 @@ enum Nationality {
   KO
   EN
   CH
-  FR
+  US
+  KO
+  EN
+  CH
+  US
 }
 
 type GetMyProfileResponse {
@@ -175,12 +175,14 @@ type User {
   id: Int!
   firstName: String!
   lastName: String!
+  fullName: String
   email: String!
   password: String!
   age: Int!
   medicalRecords: [MedicalRecord]!
   gender: Gender!
-  nationality: Language!
+  isAbroad: Boolean!
+  nationality: Nationality!
   address: String!
   createdAt: String!
   updatedAt: String

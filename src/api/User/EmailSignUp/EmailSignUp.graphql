@@ -11,7 +11,7 @@ enum Nationality {
     KO
     EN
     CH
-    FR
+    US
 }
 type Mutation {
     EmailSignUp(
@@ -20,6 +20,7 @@ type Mutation {
         lastName: String!
         password: String!
         address: String!
+        isAbroad: Boolean!
         age: Int!
         gender: Gender!
         nationality: Nationality!

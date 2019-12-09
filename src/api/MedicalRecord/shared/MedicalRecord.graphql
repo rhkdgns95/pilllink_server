@@ -2,7 +2,7 @@ enum Language {
     KO
     EN
     CH
-    FR
+    US
 }
 enum Status { 
     COLD

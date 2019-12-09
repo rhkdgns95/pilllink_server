@@ -7,7 +7,7 @@ const Language: TLanguage[] =[
     "KO",
     "EN",
     "CH",
-    "FR"
+    "US"
 ];
 const Allergy: TAllergy[] = [
     "NULL",

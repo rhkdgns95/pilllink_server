@@ -12,7 +12,7 @@ const Nationality: TLanguage[] = [
     "KO",
     "EN",
     "CH",
-    "FR"
+    "US"
 ];
 
 @Entity()
@@ -44,6 +44,9 @@ class User extends BaseEntity {
     })
     @Column({ type: "text" })
     email: string;
+
+    @Column('boolean')
+    isAbroad: boolean;
 
     @Column({ type: "text", enum: Nationality, default: "KO" })
     nationality: TLanguage;

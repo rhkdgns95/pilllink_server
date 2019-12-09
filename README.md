@@ -18,6 +18,7 @@
 - [x] GetMyMedicalRecords.
 - [x] CreateConfirmRecord.
 - [x] UpdateConfirmRecord.
+- [x] Modify Part 1.
 
 ## Model
 1. User 
