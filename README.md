@@ -19,6 +19,7 @@
 - [x] CreateConfirmRecord.
 - [x] UpdateConfirmRecord.
 - [x] Modify Part 1.
+- [] Pagination.
 
 ## Model
 1. User 
@@ -63,3 +64,10 @@
 > /src/api/폴더/파일.graphql 형식이 아니면 에러가나는데... 이유는...
 - 관리자 계정
 > 관리자계정 아이디 필요.
+- Pagination
+1) cache데이터 재활용.
+> 전체 데이터를 가지고온다. 그다음 캐시에서 필터링하여 가져오기.
+> 단점: 어쨋든 전체데이터를 가져온다는점이 몇천개의 데이터일경우 부하가 있을것이다.
+2) first와 offset의 활용.
+> 참고, https://codeburst.io/graphql-pagination-by-example-part-2-2803802ef23a?
+

@@ -22,10 +22,11 @@ type GetMyMedicalRecordsResponse {
   ok: Boolean!
   error: String
   medicalRecords: [MedicalRecord]
+  totalCount: Int
 }
 
 type Query {
-  GetMyMedicalRecords: GetMyMedicalRecordsResponse!
+  GetMyMedicalRecords(first: Int, offset: Int): GetMyMedicalRecordsResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   GetMyProfile: GetMyProfileResponse!
 }
