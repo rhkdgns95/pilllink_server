@@ -31,12 +31,14 @@ const resolvers: Resolvers = {
                  */
                 return {
                     ok: true,
-                    error: null
+                    error: null,
+                    user
                 };
             } catch(error) {
                 return {
                     ok: false,
-                    error: error.message
+                    error: error.message,
+                    user: null
                 }
             }
         })

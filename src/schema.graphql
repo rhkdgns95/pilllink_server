@@ -202,4 +202,5 @@ type User {
 type UpdateMyProfileResponse {
   ok: Boolean!
   error: String
+  user: User
 }
