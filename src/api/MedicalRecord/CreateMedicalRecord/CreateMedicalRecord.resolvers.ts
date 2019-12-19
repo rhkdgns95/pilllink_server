@@ -15,7 +15,6 @@ const resolvers: Resolvers = {
                     ...nullArgs,
                     patient: user
                 }).save();
-                console.log("Medical: ", medicalRecord);
                 return {
                     ok: true,
                     error: null,

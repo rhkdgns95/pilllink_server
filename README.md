@@ -19,7 +19,8 @@
 - [x] CreateConfirmRecord.
 - [x] UpdateConfirmRecord.
 - [x] Modify Part 1.
-- [] Pagination.
+- [x] Pagination.
+- [] Pagination Update, User Add RelationCount() 
 
 ## Model
 1. User 
@@ -70,4 +71,4 @@
 > 단점: 어쨋든 전체데이터를 가져온다는점이 몇천개의 데이터일경우 부하가 있을것이다.
 2) first와 offset의 활용.
 > 참고, https://codeburst.io/graphql-pagination-by-example-part-2-2803802ef23a?
-
+> 참고, https://github.com/typeorm/typeorm/blob/master/docs/find-options.md

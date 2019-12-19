@@ -17,8 +17,6 @@ const resolvers: Resolvers = {
         GetMyMedicalRecords: privateResolvers(async (_, args: GetMyMedicalRecordsQueryArgs, { req }): Promise<GetMyMedicalRecordsResponse> => {
             const user: User = req.user;
             const { first, offset = 0 } = args;
-            console.log("USER: ", user);
-            
             // [1] 전체 데이터가져오기.
             if(first === null) {
                 try {
@@ -26,9 +24,13 @@ const resolvers: Resolvers = {
                         where: {
                             patientId: user.id
                         },
+                        order: {
+                            createdAt: "ASC"
+                        },
                         relations: ['patient']
                         // relations: [ 'confirm' ]
                     });
+                    
                     return {
                         ok: true,
                         error: null,
@@ -51,7 +53,7 @@ const resolvers: Resolvers = {
                             skip: offset,
                             take: first,
                             order: {
-                                createdAt: "ASC"
+                                createdAt: "DESC"
                             },
                             where: {
                                 patientId: user.id
@@ -77,7 +79,7 @@ const resolvers: Resolvers = {
                         const medicalRecords: Array<MedicalRecord> | undefined = await MedicalRecord.find({
                             take: first,
                             order: {
-                                createdAt: "ASC"
+                                createdAt: "DESC"
                             },
                             where: {
                                 patientId: user.id
@@ -98,11 +100,7 @@ const resolvers: Resolvers = {
                         };
                     }
                 }
-
-
             }
-            
-            
         })
     }
 };

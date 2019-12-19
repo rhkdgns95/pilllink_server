@@ -13,6 +13,7 @@ type User {
     password: String!
     age: Int!
     medicalRecords: [MedicalRecord]!
+    medicalRecordsCount: Int
     gender: Gender!
     isAbroad: Boolean!
     nationality: Nationality!

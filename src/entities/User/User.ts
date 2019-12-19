@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeUpdate, BeforeInsert, OneToMany } from "typeorm";
+import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeUpdate, BeforeInsert, OneToMany, RelationCount } from "typeorm";
 import { IsEmail, Length } from "class-validator";
 import bcrypt from "bcrypt-nodejs";
 import MedicalRecord from "../MedicalRecord/MedicalRecord";
@@ -62,6 +62,9 @@ class User extends BaseEntity {
 
     @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.patient)
     medicalRecords: MedicalRecord[];
+
+    @RelationCount((user: User) => user.medicalRecords)
+    medicalRecordsCount: number;
 
     @CreateDateColumn() createdAt: string;
 
