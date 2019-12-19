@@ -6,7 +6,7 @@ type CreateConfirmResponse {
 
 type Mutation {
   CreateConfirm(medicalRecordId: Int!, result: String!): CreateConfirmResponse!
-  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_snot: Boolean, cold_throat: Boolean, cold_fever: Boolean, cold_muscle: Boolean, colic_diarrhead: Boolean, colic_periodCramps: Boolean, colic_indigestion: Boolean, colic_constipation: Boolean, colic_sickness: Boolean, colic_heartburn: Boolean, female_tmp: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_throwup: Boolean, hangover_sickness: Boolean, hangover_heartburn: Boolean, headache_headache: Boolean, headache_migraine: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_hives: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, other_tmp: Boolean, toothache_needle: Boolean, toothache_stomatitis: Boolean, toothache_drylips: Boolean, toothache_badbreath: Boolean, toothache_gum: Boolean, toothache_drymouth: Boolean): CreateMedicalRecordResponse!
+  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_tmp: Boolean): CreateMedicalRecordResponse!
   UpdateConfirmRecord(confirmRecordId: Int!, result: String!): UpdateConfirmRecordResponse!
   EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, address: String!, isAbroad: Boolean!, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
   UpdateMyProfile(isAbroad: Boolean, firstName: String, lastName: String, age: Int, password: String, address: String, gender: Gender, nationality: Nationality): UpdateMyProfileResponse!
@@ -41,21 +41,25 @@ type ConfirmRecord {
 }
 
 enum Language {
+  JA
+  FR
+  ES
+  RU
+  MO
+  VI
+  TH
   KO
   EN
   CH
-  US
 }
 
 enum Status {
   COLD
-  COLIC
-  FEMALE
   HANGOVER
-  HEADACHE
-  OTHER
+  STOMACHACHE
   SKIN
-  TOOTHACHE
+  FEMALE
+  OTHER
 }
 
 enum Allergy {
@@ -92,42 +96,35 @@ type MedicalRecord {
   # Cold - 감기
   cold_cough: Boolean
   cold_headache: Boolean
-  cold_snot: Boolean
-  cold_throat: Boolean
+  cold_runnyNose: Boolean
+  cold_soreThroat: Boolean
   cold_fever: Boolean
-  cold_muscle: Boolean
-  # Colic - 복통
-  colic_diarrhead: Boolean
-  colic_periodCramps: Boolean
-  colic_indigestion: Boolean
-  colic_constipation: Boolean
-  colic_sickness: Boolean
-  colic_heartburn: Boolean
-  # Female - 여성질환
-  female_tmp: Boolean
+  cold_bodyache: Boolean
   # Hangover - 숙취
   hangover_headache: Boolean
   hangover_diarrhea: Boolean
-  hangover_throwup: Boolean
-  hangover_sickness: Boolean
+  hangover_vomit: Boolean
+  hangover_nausea: Boolean
   hangover_heartburn: Boolean
-  # Headache - 두통
-  headache_headache: Boolean
-  headache_migraine: Boolean
+  # Stomachache - 복통
+  stomachache_diarrhead: Boolean
+  stomachache_periodCramps: Boolean
+  stomachache_indigestion: Boolean
+  stomachache_constipation: Boolean
+  stomachache_nausea: Boolean
+  stomachache_heartburn: Boolean
   # Skin - 피부질환
   skin_abrasion: Boolean
   skin_acne: Boolean
-  skin_hives: Boolean
+  skin_rash: Boolean
   skin_eczema: Boolean
   skin_blister: Boolean
   skin_athletesfoot: Boolean
-  # Toothache - 구강질환
-  toothache_needle: Boolean
-  toothache_stomatitis: Boolean
-  toothache_drylips: Boolean
-  toothache_badbreath: Boolean
-  toothache_gum: Boolean
-  toothache_drymouth: Boolean
+  # Female - 여성질환
+  female_periodCramp: Boolean
+  female_pregnancyTest: Boolean
+  female_oralBirthControl: Boolean
+  female_postCoitalBirthControl: Boolean
   # Other - 기타
   other_tmp: Boolean
 }
@@ -156,14 +153,26 @@ enum Gender {
 }
 
 enum Nationality {
+  JA
+  FR
+  ES
+  RU
+  MO
+  VI
+  TH
   KO
   EN
   CH
-  US
+  JA
+  FR
+  ES
+  RU
+  MO
+  VI
+  TH
   KO
   EN
   CH
-  US
 }
 
 type GetMyProfileResponse {

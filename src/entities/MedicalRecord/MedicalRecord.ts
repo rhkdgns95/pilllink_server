@@ -7,7 +7,13 @@ const Language: TLanguage[] =[
     "KO",
     "EN",
     "CH",
-    "US"
+    "JA",
+    "FR",
+    "ES", 
+    "RU", 
+    "MO",
+    "VI",
+    "TH",
 ];
 const Allergy: TAllergy[] = [
     "NULL",
@@ -28,13 +34,11 @@ const ChronicDiseases: TChronicDiseases[] = [
 ];
 const Status: TStatus[] = [
     "COLD",
-    "COLIC",
-    "FEMALE",
     "HANGOVER",
-    "HEADACHE",
-    "OTHER",
+    "STOMACHACHE",
     "SKIN",
-    "TOOTHACHE"
+    "FEMALE",
+    "OTHER",
 ]
 
 @Entity()
@@ -79,39 +83,16 @@ class MedicalRecord extends BaseEntity {
     cold_headache: boolean // 두통
 
     @Column({type: 'boolean', nullable: true})
-    cold_snot: boolean // 콧물
+    cold_runnyNose: boolean // 콧물
 
     @Column({type: 'boolean', nullable: true})
-    cold_throat: boolean // 목아픔
+    cold_soreThroat: boolean // 목아픔
 
     @Column({type: 'boolean', nullable: true})
     cold_fever: boolean // 열
 
     @Column({type: 'boolean', nullable: true})
-    cold_muscle: boolean // 몸살
-
-    // Colic - 복통
-    @Column({type: 'boolean', nullable: true})
-    colic_diarrhead: boolean // 설사
-
-    @Column({type: 'boolean', nullable: true})
-    colic_periodCramps: boolean // 생리통
-
-    @Column({type: 'boolean', nullable: true})
-    colic_indigestion: boolean // 소화불량
-
-    @Column({type: 'boolean', nullable: true})
-    colic_constipation: boolean // 변비
-
-    @Column({type: 'boolean', nullable: true})
-    colic_sickness: boolean // 메스꺼움
-
-    @Column({type: 'boolean', nullable: true})
-    colic_heartburn: boolean // 속쓰림
-
-    // Female - 여성질환
-    @Column({type: 'boolean', nullable: true})
-    female_tmp: boolean // 임시
+    cold_bodyache: boolean // 몸살
 
     // Hangover - 숙취
     @Column({type: 'boolean', nullable: true})
@@ -121,20 +102,32 @@ class MedicalRecord extends BaseEntity {
     hangover_diarrhea: boolean // 설사
 
     @Column({type: 'boolean', nullable: true})
-    hangover_throwup: boolean // 구토
+    hangover_vomit: boolean // 구토
 
     @Column({type: 'boolean', nullable: true})
-    hangover_sickness: boolean // 메스꺼움
+    hangover_nausea: boolean // 메스꺼움
 
     @Column({type: 'boolean', nullable: true})
     hangover_heartburn: boolean // 속쓰림
 
-    // Headache - 두통
+    // Stomachache - 복통
     @Column({type: 'boolean', nullable: true})
-    headache_headache: boolean // 두통
+    stomachache_diarrhead: boolean // 설사
 
     @Column({type: 'boolean', nullable: true})
-    headache_migraine: boolean // 편두통
+    stomachache_periodCramps: boolean // 생리통
+
+    @Column({type: 'boolean', nullable: true})
+    stomachache_indigestion: boolean // 소화불량
+
+    @Column({type: 'boolean', nullable: true})
+    stomachache_constipation: boolean // 변비
+
+    @Column({type: 'boolean', nullable: true})
+    stomachache_nausea: boolean // 메스꺼움
+
+    @Column({type: 'boolean', nullable: true})
+    stomachache_heartburn: boolean // 속쓰림
 
     // Skin - 피부질환
     @Column({type: 'boolean', nullable: true})
@@ -144,7 +137,7 @@ class MedicalRecord extends BaseEntity {
     skin_acne: boolean // 여드름
 
     @Column({type: 'boolean', nullable: true})
-    skin_hives: boolean // 두드러기
+    skin_rash: boolean // 두드러기
 
     @Column({type: 'boolean', nullable: true})
     skin_eczema: boolean // 습진
@@ -155,24 +148,18 @@ class MedicalRecord extends BaseEntity {
     @Column({type: 'boolean', nullable: true})
     skin_athletesfoot: boolean // 무좀
 
-    // Toothache - 구강질환
+    // Female - 여성질환
     @Column({type: 'boolean', nullable: true})
-    toothache_needle: boolean // 혓바늘
+    female_periodCramp: boolean // 생리통
 
     @Column({type: 'boolean', nullable: true})
-    toothache_stomatitis: boolean // 구내염
+    female_pregnancyTest: boolean // 임신테스트
+    
+    @Column({type: 'boolean', nullable: true})
+    female_oralBirthControl: boolean // 경구피임약
 
     @Column({type: 'boolean', nullable: true})
-    toothache_drylips: boolean // 마른 입술
-
-    @Column({type: 'boolean', nullable: true})
-    toothache_badbreath: boolean // 입냄새
-
-    @Column({type: 'boolean', nullable: true})
-    toothache_gum: boolean // 잇몸
-
-    @Column({type: 'boolean', nullable: true})
-    toothache_drymouth: boolean // 구강건조증
+    female_postCoitalBirthControl: boolean // 사후피임약
 
     // Other - 기타
     @Column({type: 'boolean', nullable: true})

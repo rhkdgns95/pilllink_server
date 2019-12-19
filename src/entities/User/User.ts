@@ -12,7 +12,13 @@ const Nationality: TLanguage[] = [
     "KO",
     "EN",
     "CH",
-    "US"
+    "JA",
+    "FR",
+    "ES", 
+    "RU", 
+    "MO",
+    "VI",
+    "TH",
 ];
 
 @Entity()

@@ -20,7 +20,10 @@
 - [x] UpdateConfirmRecord.
 - [x] Modify Part 1.
 - [x] Pagination.
-- [] Pagination Update, User Add RelationCount() 
+- [x] Pagination Update, User Add RelationCount
+- [x] Translator, Language Part 1
+- [] Confirm - Feedback
+- [] Board
 
 ## Model
 1. User 

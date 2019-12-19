@@ -1,8 +1,15 @@
 enum Nationality {
+    JA # Japan
+    FR # France
+    ES # spain
+    RU # Russia
+    MO # Mongol
+    VI # Vietnam
+    TH # Th
+
     KO
     EN
     CH
-    US
 }
 type User {
     id: Int!
