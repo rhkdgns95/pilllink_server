@@ -22,7 +22,9 @@
 - [x] Pagination.
 - [x] Pagination Update, User Add RelationCount
 - [x] Translator, Language Part 1
-- [x] UpdateMyProfile - Modify Response user Info.
+- [x] UpdateMyProfile - Response Add user Info.
+- [x] Add User - aboradAddress, addressList, addresItem
+- [] heroku
 - [] Confirm - Feedback
 - [] Board
 

@@ -18,7 +18,10 @@ const resolvers: Resolvers = {
                 await User.update({
                     id: user.id
                 }, { 
-                    ...notNulls
+                    ...notNulls,
+                    abroadAddress: args.isAbroad ? args.abroadAddress : null, 
+                    addressList: args.isAbroad ? null : args.addressList,
+                    addressItem: args.isAbroad ? null : args.addressItem
                 });
                 /**
                  *  password만 따로 관리하는 이유는?

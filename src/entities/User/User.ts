@@ -2,7 +2,7 @@ import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, U
 import { IsEmail, Length } from "class-validator";
 import bcrypt from "bcrypt-nodejs";
 import MedicalRecord from "../MedicalRecord/MedicalRecord";
-import { TGender, TLanguage } from "../../types/types";
+import { TGender, TLanguage, TAddress } from "../../types/types";
 
 const GenderAttr: TGender[] = [
     "M",
@@ -20,7 +20,25 @@ const Nationality: TLanguage[] = [
     "VI",
     "TH",
 ];
-
+const Address: TAddress[] = [
+    "SEOUL",
+    "BUSAN",
+    "DAEGU",
+    "INCHEON",
+    "GWANGJU",
+    "DAEJEON",
+    "ULSAN",
+    "SEJONG",
+    "GYEONGGI",
+    "GANGWON",
+    "CHUNGBUK",
+    "CHUNGNAM",
+    "JEONBUK",
+    "JEONNAM",
+    "GYEONGBUK",
+    "GYEONGNAM",
+    "JEJU"
+];
 @Entity()
 class User extends BaseEntity {
 
@@ -63,8 +81,14 @@ class User extends BaseEntity {
     @Column({ type: "int" })
     age: number;
     
-    @Column({ type: "text" })
-    address: string;
+    @Column({ type: "text", nullable: true })
+    abroadAddress: string | null;
+    
+    @Column({ type: "text", enum: Address, nullable: true })
+    addressList: TAddress | null;
+
+    @Column({ type: "text", nullable: true })
+    addressItem: string | null;
 
     @OneToMany(type => MedicalRecord, medicalRecord => medicalRecord.patient)
     medicalRecords: MedicalRecord[];

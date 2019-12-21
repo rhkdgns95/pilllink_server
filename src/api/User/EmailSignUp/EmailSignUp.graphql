@@ -26,8 +26,10 @@ type Mutation {
         firstName: String!
         lastName: String!
         password: String!
-        address: String!
         isAbroad: Boolean!
+        abroadAddress: String
+        addressList: Address
+        addressItem: String
         age: Int!
         gender: Gender!
         nationality: Nationality!

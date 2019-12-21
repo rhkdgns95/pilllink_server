@@ -11,6 +11,25 @@ enum Nationality {
     EN
     CH
 }
+enum Address {
+    SEOUL
+    BUSAN
+    DAEGU
+    INCHEON
+    GWANGJU
+    DAEJEON
+    ULSAN
+    SEJONG
+    GYEONGGI
+    GANGWON
+    CHUNGBUK
+    CHUNGNAM
+    JEONBUK
+    JEONNAM
+    GYEONGBUK
+    GYEONGNAM
+    JEJU
+}
 type User {
     id: Int!
     firstName: String!
@@ -24,7 +43,9 @@ type User {
     gender: Gender!
     isAbroad: Boolean!
     nationality: Nationality!
-    address: String!
+    abroadAddress: String
+    addressList: Address
+    addressItem: String
     createdAt: String!
     updatedAt: String
 }

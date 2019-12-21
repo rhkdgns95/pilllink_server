@@ -5,12 +5,14 @@ type UpdateMyProfileResponse {
 }
 type Mutation {
     UpdateMyProfile(
-        isAbroad: Boolean
+        isAbroad: Boolean!
+        abroadAddress: String
+        addressList: Address
+        addressItem: String
         firstName: String
         lastName: String
         age: Int
         password: String
-        address: String
         gender: Gender
         nationality: Nationality
     ): UpdateMyProfileResponse!
