@@ -24,6 +24,7 @@
 - [x] Translator, Language Part 1
 - [x] UpdateMyProfile - Response Add user Info.
 - [x] Add User - aboradAddress, addressList, addresItem
+- [x] Add copy module.
 - [] heroku
 - [] Confirm - Feedback
 - [] Board
@@ -47,7 +48,7 @@
 : yarn add class-validator
 : yarn add bcrypt-nodejs @types/bcrypt-nodejs
 : yarn add jsonwebtoken
-
+: yarn add copy
 ## Question.
 : 알러지, 임신여부, 만성질환 중첩되는 요소
 : 유저데이터 제한조건
