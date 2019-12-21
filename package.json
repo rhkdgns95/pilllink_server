@@ -34,9 +34,10 @@
     "pretypes": "gql-merge -o ./src/schema.graphql ./src/api/**/*.graphql",
     "types": "graphql-to-typescript ./src/schema.graphql ./src/graph.d.ts",
     "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
-    "prebuild": "rm -rf dist ",
+    "prebuild": "rm -rf dist",
     "build": "tsc",
-    "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api"
+    "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api",
+    "start": "cd dist && node ."
   },
   "devDependencies": {
     "copy": "^0.3.2"
