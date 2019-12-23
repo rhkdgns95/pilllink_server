@@ -19,6 +19,11 @@ const Nationality: TLanguage[] = [
     "MO",
     "VI",
     "TH",
+    "US",
+    "CA",
+    "ME",
+    "TA",
+    "HO"
 ];
 const Address: TAddress[] = [
     "SEOUL",

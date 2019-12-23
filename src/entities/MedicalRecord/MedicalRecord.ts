@@ -14,6 +14,11 @@ const Language: TLanguage[] =[
     "MO",
     "VI",
     "TH",
+    "US",
+    "CA",
+    "ME",
+    "TA",
+    "HO"
 ];
 const Allergy: TAllergy[] = [
     "NULL",
@@ -161,9 +166,21 @@ class MedicalRecord extends BaseEntity {
     @Column({type: 'boolean', nullable: true})
     female_postCoitalBirthControl: boolean // 사후피임약
 
-    // Other - 기타
+    // Other - 응급처치
     @Column({type: 'boolean', nullable: true})
-    other_tmp: boolean // 임시
+    other_bandAid: boolean // 반창고
+    
+    @Column({type: 'boolean', nullable: true})
+    other_bandage: boolean // 붕대
+
+    @Column({type: 'boolean', nullable: true})
+    other_disinfectant: boolean // 소독약
+    
+    @Column({type: 'boolean', nullable: true})
+    other_salineSolution: boolean // 식염수
+    
+    @Column({type: 'boolean', nullable: true})
+    other_artificialTears: boolean // 인공눈물
     
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;

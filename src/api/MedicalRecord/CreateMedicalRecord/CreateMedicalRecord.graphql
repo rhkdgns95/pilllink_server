@@ -46,6 +46,11 @@ type Mutation {
         female_oralBirthControl: Boolean #경구피임약
         female_postCoitalBirthControl: Boolean #사후피임약
         # Other - 기타
-        other_tmp: Boolean #임시
+        other_bandAid: Boolean #반창고
+        other_bandage: Boolean #붕대
+        other_disinfectant: Boolean #소독약
+        other_salineSolution: Boolean #식염수
+        other_artificialTears: Boolean #인공눈물
+        
     ): CreateMedicalRecordResponse!
 }

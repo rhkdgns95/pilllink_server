@@ -6,7 +6,7 @@ import ConfirmRecord from "../../../entities/ConfirmRecord/ConfirmRecord";
 const resolvers: Resolvers = {
     Mutation: {
         UpdateConfirmRecord: privateResolvers(async (_, args: UpdateConfirmRecordMutationArgs): Promise<UpdateConfirmRecordResponse> => {
-            const { confirmRecordId, result } = args;
+            const { confirmRecordId } = args;
             try {
                 const existConfirmRecord: ConfirmRecord | undefined = await ConfirmRecord.findOne({
                     id: confirmRecordId
@@ -15,7 +15,6 @@ const resolvers: Resolvers = {
                     await ConfirmRecord.update({
                         id: confirmRecordId
                     }, {
-                        result
                     });
                     return {
                         ok: true,

@@ -10,6 +10,13 @@ enum Nationality {
     KO
     EN
     CH
+
+    # 5국가 추가.
+    US
+    CA
+    ME
+    TA
+    HO
 }
 enum Address {
     SEOUL

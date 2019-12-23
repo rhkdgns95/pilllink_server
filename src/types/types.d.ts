@@ -1,5 +1,5 @@
 export type TGender = "M" | "W";
-export type TLanguage = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH";
+export type TLanguage = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";
 export type TStatus = "COLD" | "HANGOVER" | "STOMACHACHE" | "SKIN" | "FEMALE" | "OTHER";
 export type TAllergy = "NULL" | "ALLERGY_PAINKILLER" | "ALLERGY_ANTIBIOTIC" | "ALLERGY_LACTOSE";
 export type TPregnant = "NULL" | "PREGNANT_TRUE";
@@ -7,5 +7,5 @@ export type TChronicDiseases = "NULL" | "CHRONIC_LIVER" | "CHRONIC_KIDNEY";
 export type TAddress = "SEOUL" | "BUSAN" | "DAEGU" | "INCHEON" | "GWANGJU" | "DAEJEON" | "ULSAN" | "SEJONG" | "GYEONGGI" | "GANGWON" | "CHUNGBUK" | "CHUNGNAM" | "JEONBUK" | "JEONNAM" | "GYEONGBUK" | "GYEONGNAM" | "JEJU";
 export type RES_AMOUNT = "D3" | "D5" | "D7";
 export type RES_TIME = "TO_MORNING" | "TO_LUNCH" | "TO_DINNER" | "TO_SLEEP";
-export type RES_WAY = "AGO_EAT" | "AGO_IMMEDIATE_EAT" | "AFTER_IMMEDIATE_EAT" | "AFTER_IMMEDIATE_EAT" | "NO_EAT";
+export type RES_WAY = "AGO_EAT" | "AGO_IMMEDIATE_EAT" | "AFTER_IMMEDIATE_EAT" | "AFTER_EAT" | "NO_EAT";
 export type RES_CAUTION = "CAUTION_SLEEP" | "CAUTION_STOMACAHCHE" | "CAUTION_RASH" | "CAUTION_DIZZY" | "CAUTION_DIARRHEA" | "CAUTION_BLOODPRESSURE";

@@ -3,7 +3,7 @@ import MedicalRecord from "../MedicalRecord/MedicalRecord";
 import { RES_WAY, RES_AMOUNT } from "../../types/types";
 
 const AMOUNT: RES_AMOUNT[] = [ "D3", "D5", "D7" ];
-const WAY: RES_WAY[] = ["AFTER_IMMEDIATE_EAT", "AGO_EAT", "AGO_IMMEDIATE_EAT", "NO_EAT"];
+const WAY: RES_WAY[] = ["AFTER_IMMEDIATE_EAT", "AGO_EAT", "AGO_IMMEDIATE_EAT", "NO_EAT", "AFTER_EAT"];
 
 @Entity()
 class ConfirmRecord extends BaseEntity{
@@ -18,34 +18,34 @@ class ConfirmRecord extends BaseEntity{
     res_way: RES_WAY;
 
     @Column({ type: "boolean", nullable: true })
-    TO_MORNING: boolean;
+    TO_MORNING: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    TO_LUNCH: boolean;
+    TO_LUNCH: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    TO_DINNER: boolean;
+    TO_DINNER: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    TO_SLEEP: boolean;
+    TO_SLEEP: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_SLEEP: boolean;
+    CAUTION_SLEEP: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_STOMACAHCHE: boolean;
+    CAUTION_STOMACAHCHE: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_RASH: boolean;
+    CAUTION_RASH: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_DIZZY: boolean;
+    CAUTION_DIZZY: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_DIARRHEA: boolean;
+    CAUTION_DIARRHEA: boolean | null;
 
     @Column({ type: "boolean", nullable: true })
-    CAUTION_BLOODPRESSURE: boolean;
+    CAUTION_BLOODPRESSURE: boolean | null;
 
     @Column()
     medicalRecordId: number;

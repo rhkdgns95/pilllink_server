@@ -10,6 +10,13 @@ enum Language {
     KO
     EN
     CH
+
+    # 5국가 추가
+    US
+    CA
+    ME
+    TA
+    HO
 }
 enum Status { 
     COLD # 감기
@@ -82,6 +89,10 @@ type MedicalRecord {
     female_pregnancyTest: Boolean #임신테스트
     female_oralBirthControl: Boolean #경구피임약
     female_postCoitalBirthControl: Boolean #사후피임약
-    # Other - 기타
-    other_tmp: Boolean #임시
+    # Other - 응급처치
+    other_bandAid: Boolean #반창고
+    other_bandage: Boolean #붕대
+    other_disinfectant: Boolean #소독약
+    other_salineSolution: Boolean #식염수
+    other_artificialTears: Boolean #인공눈물
 }

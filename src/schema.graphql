@@ -6,8 +6,8 @@ type CreateConfirmResponse {
 
 type Mutation {
   CreateConfirm(medicalRecordId: Int!, res_amount: RES_AMOUNT!, res_way: RES_WAY!, TO_MORNING: Boolean, TO_LUNCH: Boolean, TO_DINNER: Boolean, TO_SLEEP: Boolean, CAUTION_SLEEP: Boolean, CAUTION_STOMACAHCHE: Boolean, CAUTION_RASH: Boolean, CAUTION_DIZZY: Boolean, CAUTION_DIARRHEA: Boolean, CAUTION_BLOODPRESSURE: Boolean): CreateConfirmResponse!
-  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_tmp: Boolean): CreateMedicalRecordResponse!
-  UpdateConfirmRecord(confirmRecordId: Int!, result: String!): UpdateConfirmRecordResponse!
+  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_bandAid: Boolean, other_bandage: Boolean, other_disinfectant: Boolean, other_salineSolution: Boolean, other_artificialTears: Boolean): CreateMedicalRecordResponse!
+  UpdateConfirmRecord(confirmRecordId: Int!): UpdateConfirmRecordResponse!
   EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
   UpdateMyProfile(isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, firstName: String, lastName: String, age: Int, password: String, gender: Gender, nationality: Nationality): UpdateMyProfileResponse!
 }
@@ -41,7 +41,7 @@ enum RES_WAY {
   AGO_EAT
   AGO_IMMEDIATE_EAT
   AFTER_IMMEDIATE_EAT
-  AFTER_IMMEDIATE_EAT
+  AFTER_EAT
   NO_EAT
 }
 
@@ -78,6 +78,12 @@ enum Language {
   KO
   EN
   CH
+  # 5국가 추가
+  US
+  CA
+  ME
+  TA
+  HO
 }
 
 enum Status {
@@ -152,8 +158,12 @@ type MedicalRecord {
   female_pregnancyTest: Boolean
   female_oralBirthControl: Boolean
   female_postCoitalBirthControl: Boolean
-  # Other - 기타
-  other_tmp: Boolean
+  # Other - 응급처치
+  other_bandAid: Boolean
+  other_bandage: Boolean
+  other_disinfectant: Boolean
+  other_salineSolution: Boolean
+  other_artificialTears: Boolean
 }
 
 type UpdateConfirmRecordResponse {
@@ -200,6 +210,12 @@ enum Nationality {
   KO
   EN
   CH
+  # 5국가 추가.
+  US
+  CA
+  ME
+  TA
+  HO
 }
 
 type GetMyProfileResponse {

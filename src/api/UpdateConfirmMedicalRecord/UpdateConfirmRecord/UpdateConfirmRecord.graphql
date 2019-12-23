@@ -4,5 +4,5 @@ type UpdateConfirmRecordResponse {
     confirmRecordId: Int
 }
 type Mutation {
-    UpdateConfirmRecord(confirmRecordId: Int! result: String!): UpdateConfirmRecordResponse!
+    UpdateConfirmRecord(confirmRecordId: Int!): UpdateConfirmRecordResponse!
 }
