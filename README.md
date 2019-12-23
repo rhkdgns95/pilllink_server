@@ -25,8 +25,9 @@
 - [x] UpdateMyProfile - Response Add user Info.
 - [x] Add User - aboradAddress, addressList, addresItem
 - [x] Add copy module.
-- [] heroku
-- [] Confirm - Feedback
+- [x] npm start option.
+- [x] heroku deploy.
+- [] Modify ConfirmRecord.
 - [] Board
 
 ## Model

@@ -5,7 +5,7 @@ type CreateConfirmResponse {
 }
 
 type Mutation {
-  CreateConfirm(medicalRecordId: Int!, result: String!): CreateConfirmResponse!
+  CreateConfirm(medicalRecordId: Int!, res_amount: RES_AMOUNT!, res_way: RES_WAY!, TO_MORNING: Boolean, TO_LUNCH: Boolean, TO_DINNER: Boolean, TO_SLEEP: Boolean, CAUTION_SLEEP: Boolean, CAUTION_STOMACAHCHE: Boolean, CAUTION_RASH: Boolean, CAUTION_DIZZY: Boolean, CAUTION_DIARRHEA: Boolean, CAUTION_BLOODPRESSURE: Boolean): CreateConfirmResponse!
   CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_tmp: Boolean): CreateMedicalRecordResponse!
   UpdateConfirmRecord(confirmRecordId: Int!, result: String!): UpdateConfirmRecordResponse!
   EmailSignUp(email: String!, firstName: String!, lastName: String!, password: String!, isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!
@@ -31,11 +31,38 @@ type Query {
   GetMyProfile: GetMyProfileResponse!
 }
 
+enum RES_AMOUNT {
+  D3
+  D5
+  D7
+}
+
+enum RES_WAY {
+  AGO_EAT
+  AGO_IMMEDIATE_EAT
+  AFTER_IMMEDIATE_EAT
+  AFTER_IMMEDIATE_EAT
+  NO_EAT
+}
+
 type ConfirmRecord {
   id: Int!
-  result: String!
   medicalRecordId: Int
   medicalRecord: MedicalRecord!
+  res_amount: RES_AMOUNT!
+  res_way: RES_WAY!
+  # Time
+  TO_MORNING: Boolean
+  TO_LUNCH: Boolean
+  TO_DINNER: Boolean
+  TO_SLEEP: Boolean
+  # Caution
+  CAUTION_SLEEP: Boolean
+  CAUTION_STOMACAHCHE: Boolean
+  CAUTION_RASH: Boolean
+  CAUTION_DIZZY: Boolean
+  CAUTION_DIARRHEA: Boolean
+  CAUTION_BLOODPRESSURE: Boolean
   createdAt: String!
   updatedAt: String
 }
