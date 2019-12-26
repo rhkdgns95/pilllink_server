@@ -18,13 +18,15 @@ const resolvers: Resolvers = {
                 return {
                     ok: true,
                     error: null,
-                    medicalRecordId: medicalRecord.id
+                    medicalRecordId: medicalRecord.id,
+                    lang: medicalRecord.lang
                 };
             } catch(error) {
                 return {
                     ok: false,
                     error: error.message,
-                    medicalRecordId: null
+                    medicalRecordId: null,
+                    lang: null
                 }
             }
         })

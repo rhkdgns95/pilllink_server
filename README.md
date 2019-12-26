@@ -27,7 +27,8 @@
 - [x] Add copy module.
 - [x] npm start option.
 - [x] heroku deploy.
-- [] Add ConfirmRecord Types, Modify Medical Records, Add 5 Nationality, 5 Language.
+- [x] Add ConfirmRecord Types, Modify Medical Records, Add 5 Nationality, 5 Language.
+- [x] Update CreateMedicalRecordResponse.
 - [] UpdateConfirmRecord Will updated.
 - [] Board
 

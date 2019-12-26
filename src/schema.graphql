@@ -16,6 +16,7 @@ type CreateMedicalRecordResponse {
   ok: Boolean
   error: String
   medicalRecordId: Int
+  lang: Language
 }
 
 type GetMyMedicalRecordsResponse {
@@ -39,8 +40,6 @@ enum RES_AMOUNT {
 
 enum RES_WAY {
   AGO_EAT
-  AGO_IMMEDIATE_EAT
-  AFTER_IMMEDIATE_EAT
   AFTER_EAT
   NO_EAT
 }

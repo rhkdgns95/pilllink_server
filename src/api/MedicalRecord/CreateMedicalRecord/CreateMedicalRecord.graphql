@@ -2,6 +2,7 @@ type CreateMedicalRecordResponse {
     ok: Boolean
     error: String
     medicalRecordId: Int
+    lang: Language
 }
 
 # union Symptoms = Cold | Colic | Female | Hangover | Headache | Other | Skin | Toothache

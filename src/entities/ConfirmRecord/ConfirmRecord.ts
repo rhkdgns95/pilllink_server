@@ -3,7 +3,8 @@ import MedicalRecord from "../MedicalRecord/MedicalRecord";
 import { RES_WAY, RES_AMOUNT } from "../../types/types";
 
 const AMOUNT: RES_AMOUNT[] = [ "D3", "D5", "D7" ];
-const WAY: RES_WAY[] = ["AFTER_IMMEDIATE_EAT", "AGO_EAT", "AGO_IMMEDIATE_EAT", "NO_EAT", "AFTER_EAT"];
+// const WAY: RES_WAY[] = ["AFTER_IMMEDIATE_EAT", "AGO_EAT", "AGO_IMMEDIATE_EAT", "NO_EAT", "AFTER_EAT"];
+const WAY: RES_WAY[] = [ "AGO_EAT", "AFTER_EAT", "NO_EAT"];
 
 @Entity()
 class ConfirmRecord extends BaseEntity{
