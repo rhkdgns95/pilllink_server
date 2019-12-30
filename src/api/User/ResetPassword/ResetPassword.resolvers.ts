@@ -24,7 +24,7 @@ const resolvers: Resolvers = {
                         const isVerifiedSendEmail = await sendEmail(fullName,email, newPassword, handleDailyMailCnt);
                         const { ok, error = "Failed." } = isVerifiedSendEmail;
 
-                        console.log("newPassword: ", newPassword);
+                        // console.log("newPassword: ", newPassword);
                         if(isVerifiedSendEmail.ok) {
                             user.password = newPassword;
                             await user.save(); 

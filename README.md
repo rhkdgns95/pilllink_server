@@ -30,6 +30,8 @@
 - [x] Add ConfirmRecord Types, Modify Medical Records, Add 5 Nationality, 5 Language.
 - [x] Update CreateMedicalRecordResponse.
 - [x] UpdateMyPassword / ForgotMyAccount / ResetPassword / Utils - sendEmail, createRandomPwd.
+- [x] Bug Fixed. MedicalRecords - patientId.
+- [x] Heroku update env.
 - [] heroku .env USER_PASS decoded.
 - [] UpdateConfirmRecord Will updated.
 - [] Board
