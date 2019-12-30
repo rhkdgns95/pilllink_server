@@ -74,7 +74,7 @@ class MedicalRecord extends BaseEntity {
     @JoinColumn()
     confirm: ConfirmRecord;
 
-    @Column({ nullable: false })
+    @Column({ nullable: true })
     patientId: number;
     
     @ManyToOne(type => User, user => user.medicalRecords, { nullable: false })

@@ -6,6 +6,9 @@ const nodeMailerOptions = (fullName: string, email: string, newPassword: string)
         to: email,
         subject: `Hello ${fullName}, Pil+Link's account has been reset.`,
         html: `
+        <div style="font-weight: bold; background-color: #f4f8ff; padding: 20px; border: 1px solid #dfdfdf;">
+            <h3 style="margin-left: 10px; letter-spacing: 5px; color: #009688; margin-bottom: 50px;">Pil+Link</h3>
+
             <p style="margin: 10px;">Hi there,</p>
 
             <p style="margin: 10px;">This notification is on behalf of 'Pil+Link' to let you know that your password has been successfully reset.</p>
@@ -14,9 +17,10 @@ const nodeMailerOptions = (fullName: string, email: string, newPassword: string)
 
             <p style="margin: 10px;">Thanks</p>
 
-            <p style="margin-top: 10px; margin-top: 50px;">
-                <a href="https://pillink.com">Login in</a>
+            <p style="margin-left: 10px; margin-top: 50px;">
+                <a href="https://pillink.com">Go Pil+Link</a>
             </p>
+        </div>
         `
     };
 }

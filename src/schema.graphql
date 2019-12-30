@@ -125,7 +125,7 @@ type MedicalRecord {
   chronicDiseases: ChronicDiseases!
   createdAt: String!
   updatedAt: String
-  patientId: Int!
+  patientId: Int
   patient: User!
   confirmId: Int
   confirm: ConfirmRecord
