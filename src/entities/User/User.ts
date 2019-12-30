@@ -44,7 +44,7 @@ const Address: TAddress[] = [
     "GYEONGNAM",
     "JEJU"
 ];
-@Entity()
+@Entity("users")
 class User extends BaseEntity {
 
     @PrimaryGeneratedColumn()
@@ -52,6 +52,13 @@ class User extends BaseEntity {
     
     @Column({ type: "text",nullable: false,  enum: GenderAttr, default: "M" })
     gender: TGender;
+
+    @Column({ type: "text" })
+    @Length(3, 25, {
+        groups: ["length"],
+        message: "ID is a string, which is 3-50 characters long."
+    })
+    userId: string;
 
     @Column({ type: "text" })
     @Length(1, 50, {

@@ -29,6 +29,7 @@
 - [x] heroku deploy.
 - [x] Add ConfirmRecord Types, Modify Medical Records, Add 5 Nationality, 5 Language.
 - [x] Update CreateMedicalRecordResponse.
+- [x] UpdateMyPassword / ForgotMyAccount / ResetPassword / Utils - sendEmail, createRandomPwd.
 - [] UpdateConfirmRecord Will updated.
 - [] Board
 
@@ -37,6 +38,7 @@
 : 유저 [patient / doctor]
 2. MedicalRecord
 : 환자 상태 기록
+
 
 ## Ref
 
@@ -52,6 +54,9 @@
 : yarn add bcrypt-nodejs @types/bcrypt-nodejs
 : yarn add jsonwebtoken
 : yarn add copy
+: yarn add mailgun-js
+<!-- : yarn add @types/mailgun-js -->
+: yarn add nodemailer
 ## Question.
 : 알러지, 임신여부, 만성질환 중첩되는 요소
 : 유저데이터 제한조건

@@ -39,6 +39,7 @@ enum Address {
 }
 type User {
     id: Int!
+    userId: String!
     firstName: String!
     lastName: String!
     fullName: String

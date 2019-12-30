@@ -1,0 +1,7 @@
+type TmpCreateVerificationResponse {
+    ok: Boolean
+}
+
+type Mutation {
+    TmpCreateVerification: TmpCreateVerificationResponse!
+}

@@ -1,0 +1,13 @@
+type ForgotMyAccountResponse {
+    ok: Boolean!
+    error: String
+    userId: String
+}
+
+type Query {
+    ForgotMyAccount(
+        firstName: String!
+        lastName: String!
+        email: String!
+    ): ForgotMyAccountResponse!
+}

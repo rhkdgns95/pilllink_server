@@ -6,9 +6,9 @@ import User from "../../../entities/User/User";
 const resolvers: Resolvers = {
     Query: {
         EmailSignIn: async (_, args: EmailSignInQueryArgs, context): Promise<EmailSignInResponse> => {
-            const { email, password } = args;
+            const { userId, password } = args;
             const user = await User.findOne({
-                email
+                userId
             });
             if(user) {
                 const isVerify: boolean = await user.comparePassword(password);
@@ -22,14 +22,14 @@ const resolvers: Resolvers = {
                 } else {
                     return {
                         ok: false,
-                        error: "Incorrect password entered",
+                        error: "Incorrect Password entered",
                         token: null
                     };
                 }
             } else {
                 return {
                     ok: false,
-                    error: "Incorrect email entered",
+                    error: "Incorrect ID entered",
                     token: null
                 };
             }

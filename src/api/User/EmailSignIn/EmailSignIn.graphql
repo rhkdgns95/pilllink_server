@@ -5,7 +5,7 @@ type EmailSignInResponse {
 }
 type Query {
     EmailSignIn(
-        email: String!
+        userId: String!
         password: String!
     ): EmailSignInResponse!
 }

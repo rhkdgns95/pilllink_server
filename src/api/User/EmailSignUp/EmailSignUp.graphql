@@ -22,6 +22,7 @@ enum Nationality {
 }
 type Mutation {
     EmailSignUp(
+        userId: String!
         email: String!
         firstName: String!
         lastName: String!

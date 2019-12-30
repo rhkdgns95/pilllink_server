@@ -11,6 +11,7 @@ type Mutation {
         addressItem: String
         firstName: String
         lastName: String
+        email: String
         age: Int
         password: String
         gender: Gender
