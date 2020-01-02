@@ -1,0 +1,9 @@
+type GetUserBoardsResponse {
+    ok: Boolean!
+    error: String
+    boards: [Board]
+}
+
+type Query {
+    GetUserBoards: GetUserBoardsResponse!
+}

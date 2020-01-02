@@ -1,0 +1,10 @@
+type UpdateBoardResultResponse {
+    ok: Boolean!
+    error: String
+}
+type Mutation {
+    UpdateBoardResult(
+        boardId: Int!
+        result: String!
+    ): UpdateBoardResultResponse!
+}

@@ -1,0 +1,9 @@
+type GetMyBoardsResponse {
+    ok: Boolean!
+    error: String
+    boards: [Board]
+}
+
+type Query {
+    GetMyBoards(take: Int! skip: Int!): GetMyBoardsResponse!
+}

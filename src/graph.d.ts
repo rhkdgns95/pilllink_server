@@ -1,11 +1,24 @@
-export const typeDefs = ["type CreateConfirmResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype Mutation {\n  CreateConfirm(medicalRecordId: Int!, res_amount: RES_AMOUNT!, res_way: RES_WAY!, TO_MORNING: Boolean, TO_LUNCH: Boolean, TO_DINNER: Boolean, TO_SLEEP: Boolean, CAUTION_SLEEP: Boolean, CAUTION_STOMACAHCHE: Boolean, CAUTION_RASH: Boolean, CAUTION_DIZZY: Boolean, CAUTION_DIARRHEA: Boolean, CAUTION_BLOODPRESSURE: Boolean): CreateConfirmResponse!\n  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_bandAid: Boolean, other_bandage: Boolean, other_disinfectant: Boolean, other_salineSolution: Boolean, other_artificialTears: Boolean): CreateMedicalRecordResponse!\n  TmpCreateVerification: TmpCreateVerificationResponse!\n  UpdateConfirmRecord(confirmRecordId: Int!): UpdateConfirmRecordResponse!\n  EmailSignUp(userId: String!, email: String!, firstName: String!, lastName: String!, password: String!, isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!\n  ResetPassword(userId: String!, email: String!): ResetPasswordResponse!\n  UpdateMyPassword(currentPassword: String!, newPassword: String!): UpdateMyPasswordResponse!\n  UpdateMyProfile(isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, firstName: String, lastName: String, email: String, age: Int, password: String, gender: Gender, nationality: Nationality): UpdateMyProfileResponse!\n}\n\ntype CreateMedicalRecordResponse {\n  ok: Boolean\n  error: String\n  medicalRecordId: Int\n  lang: Language\n}\n\ntype GetMyMedicalRecordsResponse {\n  ok: Boolean!\n  error: String\n  medicalRecords: [MedicalRecord]\n  totalCount: Int\n}\n\ntype Query {\n  GetMyMedicalRecords(first: Int, offset: Int): GetMyMedicalRecordsResponse!\n  EmailSignIn(userId: String!, password: String!): EmailSignInResponse!\n  ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\nenum RES_AMOUNT {\n  D3\n  D5\n  D7\n}\n\nenum RES_WAY {\n  AGO_EAT\n  AFTER_EAT\n  NO_EAT\n}\n\ntype ConfirmRecord {\n  id: Int!\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord!\n  res_amount: RES_AMOUNT!\n  res_way: RES_WAY!\n  # Time\n  TO_MORNING: Boolean\n  TO_LUNCH: Boolean\n  TO_DINNER: Boolean\n  TO_SLEEP: Boolean\n  # Caution\n  CAUTION_SLEEP: Boolean\n  CAUTION_STOMACAHCHE: Boolean\n  CAUTION_RASH: Boolean\n  CAUTION_DIZZY: Boolean\n  CAUTION_DIARRHEA: Boolean\n  CAUTION_BLOODPRESSURE: Boolean\n  createdAt: String!\n  updatedAt: String\n}\n\nenum Language {\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  # 5국가 추가\n  US\n  CA\n  ME\n  TA\n  HO\n}\n\nenum Status {\n  COLD\n  HANGOVER\n  STOMACHACHE\n  SKIN\n  FEMALE\n  OTHER\n}\n\nenum Allergy {\n  NULL\n  ALLERGY_PAINKILLER\n  ALLERGY_ANTIBIOTIC\n  ALLERGY_LACTOSE\n}\n\nenum Pregnant {\n  NULL\n  PREGNANT_TRUE\n}\n\nenum ChronicDiseases {\n  NULL\n  CHRONIC_LIVER\n  CHRONIC_KIDNEY\n}\n\ntype MedicalRecord {\n  id: Int!\n  lang: Language!\n  status: Status!\n  allergy: Allergy!\n  pregnant: Pregnant!\n  chronicDiseases: ChronicDiseases!\n  createdAt: String!\n  updatedAt: String\n  patientId: Int\n  patient: User!\n  confirmId: Int\n  confirm: ConfirmRecord\n  # Cold - 감기\n  cold_cough: Boolean\n  cold_headache: Boolean\n  cold_runnyNose: Boolean\n  cold_soreThroat: Boolean\n  cold_fever: Boolean\n  cold_bodyache: Boolean\n  # Hangover - 숙취\n  hangover_headache: Boolean\n  hangover_diarrhea: Boolean\n  hangover_vomit: Boolean\n  hangover_nausea: Boolean\n  hangover_heartburn: Boolean\n  # Stomachache - 복통\n  stomachache_diarrhead: Boolean\n  stomachache_periodCramps: Boolean\n  stomachache_indigestion: Boolean\n  stomachache_constipation: Boolean\n  stomachache_nausea: Boolean\n  stomachache_heartburn: Boolean\n  # Skin - 피부질환\n  skin_abrasion: Boolean\n  skin_acne: Boolean\n  skin_rash: Boolean\n  skin_eczema: Boolean\n  skin_blister: Boolean\n  skin_athletesfoot: Boolean\n  # Female - 여성질환\n  female_periodCramp: Boolean\n  female_pregnancyTest: Boolean\n  female_oralBirthControl: Boolean\n  female_postCoitalBirthControl: Boolean\n  # Other - 응급처치\n  other_bandAid: Boolean\n  other_bandage: Boolean\n  other_disinfectant: Boolean\n  other_salineSolution: Boolean\n  other_artificialTears: Boolean\n}\n\ntype TmpCreateVerificationResponse {\n  ok: Boolean\n}\n\ntype UpdateConfirmRecordResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\nenum Gender {\n  M\n  W\n}\n\nenum Nationality {\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  # 5국가 추가.\n  US\n  CA\n  ME\n  TA\n  HO\n}\n\ntype ForgotMyAccountResponse {\n  ok: Boolean!\n  error: String\n  userId: String\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype ResetPasswordResponse {\n  ok: Boolean!\n  error: String\n}\n\nenum Address {\n  SEOUL\n  BUSAN\n  DAEGU\n  INCHEON\n  GWANGJU\n  DAEJEON\n  ULSAN\n  SEJONG\n  GYEONGGI\n  GANGWON\n  CHUNGBUK\n  CHUNGNAM\n  JEONBUK\n  JEONNAM\n  GYEONGBUK\n  GYEONGNAM\n  JEJU\n}\n\ntype User {\n  id: Int!\n  userId: String!\n  firstName: String!\n  lastName: String!\n  fullName: String\n  email: String!\n  password: String!\n  age: Int!\n  medicalRecords: [MedicalRecord]!\n  medicalRecordsCount: Int\n  gender: Gender!\n  isAbroad: Boolean!\n  nationality: Nationality!\n  abroadAddress: String\n  addressList: Address\n  addressItem: String\n  createdAt: String!\n  updatedAt: String\n}\n\ntype UpdateMyPasswordResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype UpdateMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n"];
+export const typeDefs = ["type GetUserBoardsResponse {\n  ok: Boolean!\n  error: String\n  boards: [Board]\n}\n\ntype Query {\n  GetUserBoards: GetUserBoardsResponse!\n  GetUsers(skip: Int!, take: Int!): GetUsersResponse!\n  GetMyBoards(take: Int!, skip: Int!): GetMyBoardsResponse!\n  GetMyMedicalRecords(first: Int, offset: Int): GetMyMedicalRecordsResponse!\n  EmailSignIn(userId: String!, password: String!): EmailSignInResponse!\n  ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!\n  GetMyProfile: GetMyProfileResponse!\n}\n\ntype GetUsersResponse {\n  ok: Boolean!\n  error: String\n  users: [User]\n  totalUsers: Int\n}\n\ntype UpdateBoardResultResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Mutation {\n  UpdateBoardResult(boardId: Int!, result: String!): UpdateBoardResultResponse!\n  CreateBoard(text: String!, selector: SELECTOR!): CreateBoardResponse!\n  CreateConfirm(medicalRecordId: Int!, res_amount: RES_AMOUNT!, res_way: RES_WAY!, TO_MORNING: Boolean, TO_LUNCH: Boolean, TO_DINNER: Boolean, TO_SLEEP: Boolean, CAUTION_SLEEP: Boolean, CAUTION_STOMACAHCHE: Boolean, CAUTION_RASH: Boolean, CAUTION_DIZZY: Boolean, CAUTION_DIARRHEA: Boolean, CAUTION_BLOODPRESSURE: Boolean): CreateConfirmResponse!\n  CreateMedicalRecord(lang: Language!, status: Status!, allergy: Allergy!, pregnant: Pregnant!, chronicDiseases: ChronicDiseases!, cold_cough: Boolean, cold_headache: Boolean, cold_runnyNose: Boolean, cold_soreThroat: Boolean, cold_fever: Boolean, cold_bodyache: Boolean, hangover_headache: Boolean, hangover_diarrhea: Boolean, hangover_vomit: Boolean, hangover_nausea: Boolean, hangover_heartburn: Boolean, stomachache_diarrhead: Boolean, stomachache_periodCramps: Boolean, stomachache_indigestion: Boolean, stomachache_constipation: Boolean, stomachache_nausea: Boolean, stomachache_heartburn: Boolean, skin_abrasion: Boolean, skin_acne: Boolean, skin_rash: Boolean, skin_eczema: Boolean, skin_blister: Boolean, skin_athletesfoot: Boolean, female_periodCramp: Boolean, female_pregnancyTest: Boolean, female_oralBirthControl: Boolean, female_postCoitalBirthControl: Boolean, other_bandAid: Boolean, other_bandage: Boolean, other_disinfectant: Boolean, other_salineSolution: Boolean, other_artificialTears: Boolean): CreateMedicalRecordResponse!\n  UpdateConfirmRecord(confirmRecordId: Int!): UpdateConfirmRecordResponse!\n  EmailSignUp(userId: String!, email: String!, firstName: String!, lastName: String!, password: String!, isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, age: Int!, gender: Gender!, nationality: Nationality!): EmailSignUpResponse!\n  ResetPassword(userId: String!, email: String!): ResetPasswordResponse!\n  UpdateMyPassword(currentPassword: String!, newPassword: String!): UpdateMyPasswordResponse!\n  UpdateMyProfile(isAbroad: Boolean!, abroadAddress: String, addressList: Address, addressItem: String, firstName: String, lastName: String, email: String, age: Int, password: String, gender: Gender, nationality: Nationality): UpdateMyProfileResponse!\n}\n\ntype CreateBoardResponse {\n  ok: Boolean!\n  error: String\n  boardId: Int\n}\n\ntype GetMyBoardsResponse {\n  ok: Boolean!\n  error: String\n  boards: [Board]\n}\n\nenum SELECTOR {\n  BOARD_SUGGESTION\n  BOARD_QUESTION\n  BOARD_PROBLEM\n}\n\ntype Board {\n  id: Int!\n  text: String!\n  result: String\n  selector: SELECTOR!\n  writerId: Int\n  writer: User!\n  createdAt: String!\n  updatedAt: String\n}\n\ntype CreateConfirmResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype CreateMedicalRecordResponse {\n  ok: Boolean\n  error: String\n  medicalRecordId: Int\n  lang: Language\n}\n\ntype GetMyMedicalRecordsResponse {\n  ok: Boolean!\n  error: String\n  medicalRecords: [MedicalRecord]\n  totalCount: Int\n}\n\nenum RES_AMOUNT {\n  D3\n  D5\n  D7\n}\n\nenum RES_WAY {\n  AGO_EAT\n  AFTER_EAT\n  NO_EAT\n}\n\ntype ConfirmRecord {\n  id: Int!\n  medicalRecordId: Int\n  medicalRecord: MedicalRecord!\n  res_amount: RES_AMOUNT!\n  res_way: RES_WAY!\n  # Time\n  TO_MORNING: Boolean\n  TO_LUNCH: Boolean\n  TO_DINNER: Boolean\n  TO_SLEEP: Boolean\n  # Caution\n  CAUTION_SLEEP: Boolean\n  CAUTION_STOMACAHCHE: Boolean\n  CAUTION_RASH: Boolean\n  CAUTION_DIZZY: Boolean\n  CAUTION_DIARRHEA: Boolean\n  CAUTION_BLOODPRESSURE: Boolean\n  createdAt: String!\n  updatedAt: String\n}\n\nenum Language {\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  # 5국가 추가\n  US\n  CA\n  ME\n  TA\n  HO\n}\n\nenum Status {\n  COLD\n  HANGOVER\n  STOMACHACHE\n  SKIN\n  FEMALE\n  OTHER\n}\n\nenum Allergy {\n  NULL\n  ALLERGY_PAINKILLER\n  ALLERGY_ANTIBIOTIC\n  ALLERGY_LACTOSE\n}\n\nenum Pregnant {\n  NULL\n  PREGNANT_TRUE\n}\n\nenum ChronicDiseases {\n  NULL\n  CHRONIC_LIVER\n  CHRONIC_KIDNEY\n}\n\ntype MedicalRecord {\n  id: Int!\n  lang: Language!\n  status: Status!\n  allergy: Allergy!\n  pregnant: Pregnant!\n  chronicDiseases: ChronicDiseases!\n  createdAt: String!\n  updatedAt: String\n  patientId: Int\n  patient: User!\n  confirmId: Int\n  confirm: ConfirmRecord\n  # Cold - 감기\n  cold_cough: Boolean\n  cold_headache: Boolean\n  cold_runnyNose: Boolean\n  cold_soreThroat: Boolean\n  cold_fever: Boolean\n  cold_bodyache: Boolean\n  # Hangover - 숙취\n  hangover_headache: Boolean\n  hangover_diarrhea: Boolean\n  hangover_vomit: Boolean\n  hangover_nausea: Boolean\n  hangover_heartburn: Boolean\n  # Stomachache - 복통\n  stomachache_diarrhead: Boolean\n  stomachache_periodCramps: Boolean\n  stomachache_indigestion: Boolean\n  stomachache_constipation: Boolean\n  stomachache_nausea: Boolean\n  stomachache_heartburn: Boolean\n  # Skin - 피부질환\n  skin_abrasion: Boolean\n  skin_acne: Boolean\n  skin_rash: Boolean\n  skin_eczema: Boolean\n  skin_blister: Boolean\n  skin_athletesfoot: Boolean\n  # Female - 여성질환\n  female_periodCramp: Boolean\n  female_pregnancyTest: Boolean\n  female_oralBirthControl: Boolean\n  female_postCoitalBirthControl: Boolean\n  # Other - 응급처치\n  other_bandAid: Boolean\n  other_bandage: Boolean\n  other_disinfectant: Boolean\n  other_salineSolution: Boolean\n  other_artificialTears: Boolean\n}\n\ntype UpdateConfirmRecordResponse {\n  ok: Boolean!\n  error: String\n  confirmRecordId: Int\n}\n\ntype EmailSignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype EmailSignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\nenum Gender {\n  M\n  W\n}\n\nenum Nationality {\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  JA\n  FR\n  ES\n  RU\n  MO\n  VI\n  TH\n  KO\n  EN\n  CH\n  # 5국가 추가.\n  US\n  CA\n  ME\n  TA\n  HO\n}\n\ntype ForgotMyAccountResponse {\n  ok: Boolean!\n  error: String\n  userId: String\n}\n\ntype GetMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n\ntype ResetPasswordResponse {\n  ok: Boolean!\n  error: String\n}\n\nenum Address {\n  SEOUL\n  BUSAN\n  DAEGU\n  INCHEON\n  GWANGJU\n  DAEJEON\n  ULSAN\n  SEJONG\n  GYEONGGI\n  GANGWON\n  CHUNGBUK\n  CHUNGNAM\n  JEONBUK\n  JEONNAM\n  GYEONGBUK\n  GYEONGNAM\n  JEJU\n}\n\ntype User {\n  id: Int!\n  userId: String!\n  firstName: String!\n  lastName: String!\n  fullName: String\n  email: String!\n  password: String!\n  age: Int!\n  medicalRecords: [MedicalRecord]!\n  medicalRecordsCount: Int\n  gender: Gender!\n  isAbroad: Boolean!\n  nationality: Nationality!\n  abroadAddress: String\n  addressList: Address\n  addressItem: String\n  boards: [Board]\n  boardCount: Int\n  createdAt: String!\n  updatedAt: String\n}\n\ntype UpdateMyPasswordResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype UpdateMyProfileResponse {\n  ok: Boolean!\n  error: String\n  user: User\n}\n"];
 /* tslint:disable */
 
 export interface Query {
+  GetUserBoards: GetUserBoardsResponse;
+  GetUsers: GetUsersResponse;
+  GetMyBoards: GetMyBoardsResponse;
   GetMyMedicalRecords: GetMyMedicalRecordsResponse;
   EmailSignIn: EmailSignInResponse;
   ForgotMyAccount: ForgotMyAccountResponse;
   GetMyProfile: GetMyProfileResponse;
+}
+
+export interface GetUsersQueryArgs {
+  skip: number;
+  take: number;
+}
+
+export interface GetMyBoardsQueryArgs {
+  take: number;
+  skip: number;
 }
 
 export interface GetMyMedicalRecordsQueryArgs {
@@ -24,11 +37,46 @@ export interface ForgotMyAccountQueryArgs {
   email: string;
 }
 
-export interface GetMyMedicalRecordsResponse {
+export interface GetUserBoardsResponse {
   ok: boolean;
   error: string | null;
-  medicalRecords: Array<MedicalRecord> | null;
-  totalCount: number | null;
+  boards: Array<Board> | null;
+}
+
+export interface Board {
+  id: number;
+  text: string;
+  result: string | null;
+  selector: SELECTOR;
+  writerId: number | null;
+  writer: User;
+  createdAt: string;
+  updatedAt: string | null;
+}
+
+export type SELECTOR = "BOARD_SUGGESTION" | "BOARD_QUESTION" | "BOARD_PROBLEM";
+
+export interface User {
+  id: number;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  fullName: string | null;
+  email: string;
+  password: string;
+  age: number;
+  medicalRecords: Array<MedicalRecord>;
+  medicalRecordsCount: number | null;
+  gender: Gender;
+  isAbroad: boolean;
+  nationality: Nationality;
+  abroadAddress: string | null;
+  addressList: Address | null;
+  addressItem: string | null;
+  boards: Array<Board> | null;
+  boardCount: number | null;
+  createdAt: string;
+  updatedAt: string | null;
 }
 
 export interface MedicalRecord {
@@ -88,33 +136,6 @@ export type Pregnant = "NULL" | "PREGNANT_TRUE";
 
 export type ChronicDiseases = "NULL" | "CHRONIC_LIVER" | "CHRONIC_KIDNEY";
 
-export interface User {
-  id: number;
-  userId: string;
-  firstName: string;
-  lastName: string;
-  fullName: string | null;
-  email: string;
-  password: string;
-  age: number;
-  medicalRecords: Array<MedicalRecord>;
-  medicalRecordsCount: number | null;
-  gender: Gender;
-  isAbroad: boolean;
-  nationality: Nationality;
-  abroadAddress: string | null;
-  addressList: Address | null;
-  addressItem: string | null;
-  createdAt: string;
-  updatedAt: string | null;
-}
-
-export type Gender = "M" | "W";
-
-export type Nationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";
-
-export type Address = "SEOUL" | "BUSAN" | "DAEGU" | "INCHEON" | "GWANGJU" | "DAEJEON" | "ULSAN" | "SEJONG" | "GYEONGGI" | "GANGWON" | "CHUNGBUK" | "CHUNGNAM" | "JEONBUK" | "JEONNAM" | "GYEONGBUK" | "GYEONGNAM" | "JEJU";
-
 export interface ConfirmRecord {
   id: number;
   medicalRecordId: number | null;
@@ -139,6 +160,32 @@ export type RES_AMOUNT = "D3" | "D5" | "D7";
 
 export type RES_WAY = "AGO_EAT" | "AFTER_EAT" | "NO_EAT";
 
+export type Gender = "M" | "W";
+
+export type Nationality = "JA" | "FR" | "ES" | "RU" | "MO" | "VI" | "TH" | "KO" | "EN" | "CH" | "US" | "CA" | "ME" | "TA" | "HO";
+
+export type Address = "SEOUL" | "BUSAN" | "DAEGU" | "INCHEON" | "GWANGJU" | "DAEJEON" | "ULSAN" | "SEJONG" | "GYEONGGI" | "GANGWON" | "CHUNGBUK" | "CHUNGNAM" | "JEONBUK" | "JEONNAM" | "GYEONGBUK" | "GYEONGNAM" | "JEJU";
+
+export interface GetUsersResponse {
+  ok: boolean;
+  error: string | null;
+  users: Array<User> | null;
+  totalUsers: number | null;
+}
+
+export interface GetMyBoardsResponse {
+  ok: boolean;
+  error: string | null;
+  boards: Array<Board> | null;
+}
+
+export interface GetMyMedicalRecordsResponse {
+  ok: boolean;
+  error: string | null;
+  medicalRecords: Array<MedicalRecord> | null;
+  totalCount: number | null;
+}
+
 export interface EmailSignInResponse {
   ok: boolean;
   error: string | null;
@@ -158,14 +205,25 @@ export interface GetMyProfileResponse {
 }
 
 export interface Mutation {
+  UpdateBoardResult: UpdateBoardResultResponse;
+  CreateBoard: CreateBoardResponse;
   CreateConfirm: CreateConfirmResponse;
   CreateMedicalRecord: CreateMedicalRecordResponse;
-  TmpCreateVerification: TmpCreateVerificationResponse;
   UpdateConfirmRecord: UpdateConfirmRecordResponse;
   EmailSignUp: EmailSignUpResponse;
   ResetPassword: ResetPasswordResponse;
   UpdateMyPassword: UpdateMyPasswordResponse;
   UpdateMyProfile: UpdateMyProfileResponse;
+}
+
+export interface UpdateBoardResultMutationArgs {
+  boardId: number;
+  result: string;
+}
+
+export interface CreateBoardMutationArgs {
+  text: string;
+  selector: SELECTOR;
 }
 
 export interface CreateConfirmMutationArgs {
@@ -267,6 +325,17 @@ export interface UpdateMyProfileMutationArgs {
   nationality: Nationality | null;
 }
 
+export interface UpdateBoardResultResponse {
+  ok: boolean;
+  error: string | null;
+}
+
+export interface CreateBoardResponse {
+  ok: boolean;
+  error: string | null;
+  boardId: number | null;
+}
+
 export interface CreateConfirmResponse {
   ok: boolean;
   error: string | null;
@@ -278,10 +347,6 @@ export interface CreateMedicalRecordResponse {
   error: string | null;
   medicalRecordId: number | null;
   lang: Language | null;
-}
-
-export interface TmpCreateVerificationResponse {
-  ok: boolean | null;
 }
 
 export interface UpdateConfirmRecordResponse {

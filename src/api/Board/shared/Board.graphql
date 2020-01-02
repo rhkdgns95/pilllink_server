@@ -1,0 +1,15 @@
+enum SELECTOR {
+    BOARD_SUGGESTION
+    BOARD_QUESTION
+    BOARD_PROBLEM
+}
+type Board {
+    id: Int!
+    text: String!
+    result: String
+    selector: SELECTOR!
+    writerId: Int
+    writer: User!
+    createdAt: String!
+    updatedAt: String
+}

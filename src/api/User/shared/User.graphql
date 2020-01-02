@@ -54,6 +54,8 @@ type User {
     abroadAddress: String
     addressList: Address
     addressItem: String
+    boards: [Board]
+    boardCount: Int
     createdAt: String!
     updatedAt: String
 }

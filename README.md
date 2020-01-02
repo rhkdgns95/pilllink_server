@@ -32,6 +32,13 @@
 - [x] UpdateMyPassword / ForgotMyAccount / ResetPassword / Utils - sendEmail, createRandomPwd.
 - [x] Bug Fixed. MedicalRecords - patientId.
 - [x] Heroku update env.
+- [x] Adding Board - CreateBoard, GetMyBoards, GetUserBoards(Admin), UpdateBoardResult(Admin)
+- [] Admin - Utils - adminResolvers
+- [] Admin - GetUsers.
+- [] Admin - GetChartsFromAdmin.
+- [] Admin - GetConfirmsFromAdmin.
+- [] Admin - GetUserBoards.
+
 - [] heroku .env USER_PASS decoded.
 - [] UpdateConfirmRecord Will updated.
 - [] Board

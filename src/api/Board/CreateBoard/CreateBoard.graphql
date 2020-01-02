@@ -1,0 +1,12 @@
+type CreateBoardResponse {
+    ok: Boolean!
+    error: String
+    boardId: Int
+}
+
+type Mutation {
+    CreateBoard(    
+        text: String!
+        selector: SELECTOR!
+    ): CreateBoardResponse!
+}

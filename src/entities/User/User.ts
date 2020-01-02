@@ -3,6 +3,7 @@ import { IsEmail, Length } from "class-validator";
 import bcrypt from "bcrypt-nodejs";
 import MedicalRecord from "../MedicalRecord/MedicalRecord";
 import { TGender, TLanguage, TAddress } from "../../types/types";
+import { Board } from "../Board/Board";
 
 const GenderAttr: TGender[] = [
     "M",
@@ -107,6 +108,12 @@ class User extends BaseEntity {
 
     @RelationCount((user: User) => user.medicalRecords)
     medicalRecordsCount: number;
+    
+    @OneToMany(type => Board, board => board.writer)
+    boards: Board[];
+    
+    @RelationCount((user: User) => user.boards)
+    boardCount: number;
 
     @CreateDateColumn() createdAt: string;
 
