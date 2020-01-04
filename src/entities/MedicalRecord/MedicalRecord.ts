@@ -1,4 +1,4 @@
-import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, OneToOne, ManyToOne, JoinColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, BaseEntity, ManyToOne, OneToMany, RelationCount } from "typeorm";
 import User from "../User/User";
 import ConfirmRecord from "../ConfirmRecord/ConfirmRecord";
 import { TLanguage, TAllergy, TPregnant, TChronicDiseases, TStatus } from "../../types/types";
@@ -67,13 +67,12 @@ class MedicalRecord extends BaseEntity {
     @Column({ type: "text", enum: ChronicDiseases, default: "NULL" })
     chronicDiseases: TChronicDiseases;
     
-    @Column({ nullable: true})
-    confirmId: number;
+    @OneToMany(type => ConfirmRecord, confirmRecord => confirmRecord.medicalRecord, { nullable: true })
+    confirm: ConfirmRecord[];
 
-    @OneToOne(type => ConfirmRecord, confirmRecord => confirmRecord.medicalRecord, { nullable: true })
-    @JoinColumn()
-    confirm: ConfirmRecord;
-
+    @RelationCount((medicalRecord: MedicalRecord) => medicalRecord.confirm)
+    confirmCount: number; 
+    
     @Column({ nullable: true })
     patientId: number;
     

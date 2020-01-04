@@ -1,25 +1,28 @@
 type CreateConfirmResponse{
     ok: Boolean!
     error: String
-    confirmRecordId: Int
 }
 type Mutation {
     CreateConfirm(
-        medicalRecordId: Int!
-        res_amount: RES_AMOUNT!
-        res_way: RES_WAY!
-        
-        TO_MORNING: Boolean
-        TO_LUNCH: Boolean
-        TO_DINNER: Boolean
-        TO_SLEEP: Boolean
-
-        CAUTION_SLEEP: Boolean
-        CAUTION_STOMACAHCHE: Boolean
-        CAUTION_RASH: Boolean
-        CAUTION_DIZZY: Boolean
-        CAUTION_DIARRHEA: Boolean
-        CAUTION_BLOODPRESSURE: Boolean
-
+        data: [CreateConfirmVariables!]!
     ): CreateConfirmResponse!
+}
+input CreateConfirmVariables {
+    medicalRecordId: Int!
+    
+    res_perOneTimeCnt: Int!
+    res_amount: RES_AMOUNT!
+    res_way: RES_WAY!
+    
+    TO_MORNING: Boolean
+    TO_LUNCH: Boolean
+    TO_DINNER: Boolean
+    TO_SLEEP: Boolean
+
+    CAUTION_SLEEP: Boolean
+    CAUTION_STOMACAHCHE: Boolean
+    CAUTION_RASH: Boolean
+    CAUTION_DIZZY: Boolean
+    CAUTION_DIARRHEA: Boolean
+    CAUTION_BLOODPRESSURE: Boolean
 }

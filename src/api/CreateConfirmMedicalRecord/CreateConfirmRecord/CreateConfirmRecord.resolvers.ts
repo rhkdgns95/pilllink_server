@@ -3,49 +3,52 @@ import { CreateConfirmResponse, CreateConfirmMutationArgs } from "../../../graph
 import { privateResolvers } from "../../../utils/privateResolvers";
 import ConfirmRecord from "../../../entities/ConfirmRecord/ConfirmRecord";
 import MedicalRecord from "../../../entities/MedicalRecord/MedicalRecord";
+// import ConfirmRecord from "../../../entities/ConfirmRecord/ConfirmRecord";
+// import MedicalRecord from "../../../entities/MedicalRecord/MedicalRecord";
 
 const resolvers: Resolvers = {
     Mutation: {
         CreateConfirm: privateResolvers(async (_, args: CreateConfirmMutationArgs, { req }): Promise<CreateConfirmResponse> => {
-            const { medicalRecordId } = args;
-            try {
-                const medicalRecord: MedicalRecord | undefined = await MedicalRecord.findOne({
-                    id: medicalRecordId
-                });
-                if(medicalRecord) {
-                    if(!medicalRecord.confirmId) {
-                        const confirmRecord: ConfirmRecord = await ConfirmRecord.create({
-                            ...args,
+            console.log('args:',  args);
+            // let confirms: Array<ConfirmRecord> = [];
+            // let promises, promises2;
+            // let error: string | null = null;
+            // for문으로 변경하기.
+            const { data: confirmArr } = args;
+            for(var i = 0; i < confirmArr.length; i++) {
+                try {
+                    const confirmRecord = confirmArr[i];
+                    const medicalRecord = await MedicalRecord.findOne({
+                        id: confirmRecord.medicalRecordId
+                    });
+                    
+                    delete confirmRecord.medicalRecordId;
+                    
+                    if(medicalRecord) {
+                        await ConfirmRecord.create({
+                            ...confirmRecord,
                             medicalRecord
                         }).save();
-
-                        return {
-                            ok: true,
-                            error: null,
-                            confirmRecordId: confirmRecord.id
-                        }   
                         
                     } else {
                         return {
                             ok: false,
-                            error: "Already confirm",
-                            confirmRecordId: null
+                            error: "Not Found MedicalRecord"
                         };
                     }
-                } else {
+                    console.log("생성완료! : ", i );
+                } catch(error) {
                     return {
                         ok: false,
-                        error: "Not found medical record",
-                        confirmRecordId: null
+                        error: error.message
                     }
                 }
-            } catch(error) {
-                return {
-                    ok: false,
-                    error: error.message,
-                    confirmRecordId: null
-                };
             }
+            console.log("End : ", i );
+            return {
+                ok: true,
+                error: null
+            };
         })
     }
 };

@@ -25,12 +25,12 @@ const resolvers: Resolvers = {
                             patientId: user.id
                         },
                         order: {
-                            createdAt: "ASC"
+                            createdAt: "ASC",
                         },
-                        relations: ['patient']
+                        relations: ['confirm', 'patient' ]
+                        // relations: ['patient', 'confirm']
                         // relations: [ 'confirm' ]
                     });
-                    
                     return {
                         ok: true,
                         error: null,
@@ -47,7 +47,7 @@ const resolvers: Resolvers = {
                 }
             } else { 
                 // [3] 페이지 네이션 사용하기.
-                if(offset) {
+                if(offset !== null) {
                     try {
                         const medicalRecords: Array<MedicalRecord> | undefined = await MedicalRecord.find({
                             skip: offset,
@@ -57,7 +57,8 @@ const resolvers: Resolvers = {
                             },
                             where: {
                                 patientId: user.id
-                            }
+                            },
+                            relations: ['confirm']
                         });
                         return {
                             ok: true,

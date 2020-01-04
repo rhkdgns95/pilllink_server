@@ -1,8 +1,8 @@
-import { BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, Entity } from "typeorm";
+import { BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Entity, ManyToOne } from "typeorm";
 import MedicalRecord from "../MedicalRecord/MedicalRecord";
 import { RES_WAY, RES_AMOUNT } from "../../types/types";
 
-const AMOUNT: RES_AMOUNT[] = [ "D3", "D5", "D7" ];
+const AMOUNT: RES_AMOUNT[] = [ "D1", "D2", "D3", "D5", "D7" ];
 // const WAY: RES_WAY[] = ["AFTER_IMMEDIATE_EAT", "AGO_EAT", "AGO_IMMEDIATE_EAT", "NO_EAT", "AFTER_EAT"];
 const WAY: RES_WAY[] = [ "AGO_EAT", "AFTER_EAT", "NO_EAT"];
 
@@ -17,6 +17,9 @@ class ConfirmRecord extends BaseEntity{
 
     @Column({ type:"text", enum: WAY, default: "AGO_EAT" })
     res_way: RES_WAY;
+
+    @Column("int")
+    res_perOneTimeCnt: number;
 
     @Column({ type: "boolean", nullable: true })
     TO_MORNING: boolean | null;
@@ -51,7 +54,7 @@ class ConfirmRecord extends BaseEntity{
     @Column()
     medicalRecordId: number;
 
-    @OneToOne(type => MedicalRecord, medicalRecord => medicalRecord.confirm, { nullable: false })
+    @ManyToOne(type => MedicalRecord, medicalRecord => medicalRecord.confirm, { nullable: false })
     medicalRecord: MedicalRecord;
 
     @CreateDateColumn() createdAt: string;

@@ -1,4 +1,6 @@
 enum RES_AMOUNT {
+    D1
+    D2
     D3
     D5
     D7
@@ -11,11 +13,14 @@ enum RES_WAY {
 
 type ConfirmRecord {
     id: Int!
+    
     medicalRecordId: Int
     medicalRecord: MedicalRecord!
-
+    
+    res_perOneTimeCnt: Int!
     res_amount: RES_AMOUNT!
     res_way: RES_WAY!
+    # 
 
     # Time
     TO_MORNING: Boolean

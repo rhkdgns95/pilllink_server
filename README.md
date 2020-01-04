@@ -33,6 +33,7 @@
 - [x] Bug Fixed. MedicalRecords - patientId.
 - [x] Heroku update env.
 - [x] Adding Board - CreateBoard, GetMyBoards, GetUserBoards(Admin), UpdateBoardResult(Admin)
+- [x] ConfirmRecord - perOneTimeCnt props added.
 - [] Admin - Utils - adminResolvers
 - [] Admin - GetUsers.
 - [] Admin - GetChartsFromAdmin.
@@ -97,3 +98,22 @@
 2) first와 offset의 활용.
 > 참고, https://codeburst.io/graphql-pagination-by-example-part-2-2803802ef23a?
 > 참고, https://github.com/typeorm/typeorm/blob/master/docs/find-options.md
+3) graphql Multiple Variables.
+> graphql mutation에서 객체 + 배열과같이 여러 인자로 값을 요청/전달할때, 다음과 같이 사용할 수 있다.
+type Mutation {
+    createOption(data: [createProductInput!]!): Option!
+    // other mutation definitions
+}
+input createProductInput {
+    id: ID!
+    name: String!
+    price: Float!
+    producer: ID!
+    status: String
+}
+> 참고, https://stackoverflow.com/questions/40697597/graphql-mutation-that-accepts-an-array-of-dynamic-size-and-common-scalar-types-i
+4) Promise Map에 적용하기.
+> Map에서 병렬처리를 원하는경우, 비동기로 인하여, 대기하도록 해야하기 위해서 다음을 사용한다.
+> const promises = await Array.map(() => {});
+> await Promise.all(promises);
+> 단 위의 두 코드는 async함수 안에 존재해야한다.
