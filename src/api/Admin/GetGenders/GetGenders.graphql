@@ -1,0 +1,17 @@
+type GetGendersResponse {
+    ok: Boolean
+    error: String
+    monthGender: [MonthGender]
+}
+type MonthGender {
+    month: Int
+    men: Int
+    women: Int
+}
+input Date {
+    dateStartYear: Int!
+    dateStartMonth: Int!
+}
+type Query {
+    GetGenders(dateFrom: Date dateTo: Date): GetGendersResponse!
+}

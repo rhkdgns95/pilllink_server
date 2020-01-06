@@ -1,10 +1,23 @@
-type GetUserBoardsResponse {
-  ok: Boolean!
+type GetGendersResponse {
+  ok: Boolean
   error: String
-  boards: [Board]
+  monthGender: [MonthGender]
+}
+
+type MonthGender {
+  month: Int
+  men: Int
+  women: Int
+}
+
+input Date {
+  dateStartYear: Int!
+  dateStartMonth: Int!
 }
 
 type Query {
+  GetGenders(dateFrom: Date, dateTo: Date): GetGendersResponse!
+  GetNationalityUser: GetNationalityUserResponse!
   GetUserBoards: GetUserBoardsResponse!
   GetUsers(skip: Int!, take: Int!): GetUsersResponse!
   GetMyBoards(take: Int!, skip: Int!): GetMyBoardsResponse!
@@ -12,6 +25,23 @@ type Query {
   EmailSignIn(userId: String!, password: String!): EmailSignInResponse!
   ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!
   GetMyProfile: GetMyProfileResponse!
+}
+
+type GetNationalityUserResponse {
+  ok: Boolean!
+  error: String
+  countries: [Country]
+}
+
+type Country {
+  name: String!
+  count: Int!
+}
+
+type GetUserBoardsResponse {
+  ok: Boolean!
+  error: String
+  boards: [Board]
 }
 
 type GetUsersResponse {

@@ -1,0 +1,14 @@
+type GetNationalityUserResponse {
+    ok: Boolean!
+    error: String
+    countries: [Country]
+}
+
+type Country {
+    name: String!
+    count: Int! 
+}
+
+type Query {
+    GetNationalityUser: GetNationalityUserResponse!
+}

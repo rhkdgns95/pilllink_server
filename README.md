@@ -34,8 +34,7 @@
 - [x] Heroku update env.
 - [x] Adding Board - CreateBoard, GetMyBoards, GetUserBoards(Admin), UpdateBoardResult(Admin)
 - [x] ConfirmRecord - perOneTimeCnt props added.
-- [] Admin - Utils - adminResolvers
-- [] Admin - GetUsers.
+- [x] Admin - GetUsers, GetNationalityUser / Utils - adminResolvers.
 - [] Admin - GetChartsFromAdmin.
 - [] Admin - GetConfirmsFromAdmin.
 - [] Admin - GetUserBoards.
