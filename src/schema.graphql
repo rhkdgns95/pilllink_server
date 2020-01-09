@@ -1,3 +1,22 @@
+type GetAddressUserResponse {
+  ok: Boolean!
+  error: String
+  users: [User]
+}
+
+type Query {
+  GetAddressUser: GetAddressUserResponse!
+  GetGenders(dateFrom: Date, dateTo: Date): GetGendersResponse!
+  GetNationalityUser: GetNationalityUserResponse!
+  GetUserBoards: GetUserBoardsResponse!
+  GetUsers(skip: Int!, take: Int!): GetUsersResponse!
+  GetMyBoards(take: Int!, skip: Int!): GetMyBoardsResponse!
+  GetMyMedicalRecords(first: Int, offset: Int): GetMyMedicalRecordsResponse!
+  EmailSignIn(userId: String!, password: String!): EmailSignInResponse!
+  ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!
+  GetMyProfile: GetMyProfileResponse!
+}
+
 type GetGendersResponse {
   ok: Boolean
   error: String
@@ -13,18 +32,6 @@ type MonthGender {
 input Date {
   dateStartYear: Int!
   dateStartMonth: Int!
-}
-
-type Query {
-  GetGenders(dateFrom: Date, dateTo: Date): GetGendersResponse!
-  GetNationalityUser: GetNationalityUserResponse!
-  GetUserBoards: GetUserBoardsResponse!
-  GetUsers(skip: Int!, take: Int!): GetUsersResponse!
-  GetMyBoards(take: Int!, skip: Int!): GetMyBoardsResponse!
-  GetMyMedicalRecords(first: Int, offset: Int): GetMyMedicalRecordsResponse!
-  EmailSignIn(userId: String!, password: String!): EmailSignInResponse!
-  ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!
-  GetMyProfile: GetMyProfileResponse!
 }
 
 type GetNationalityUserResponse {

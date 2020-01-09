@@ -35,7 +35,7 @@
 - [x] Adding Board - CreateBoard, GetMyBoards, GetUserBoards(Admin), UpdateBoardResult(Admin)
 - [x] ConfirmRecord - perOneTimeCnt props added.
 - [x] Admin - GetUsers, GetNationalityUser / Utils - adminResolvers.
-- [] Admin - GetChartsFromAdmin.
+- [x] Admin - GetAddressUser.
 - [] Admin - GetConfirmsFromAdmin.
 - [] Admin - GetUserBoards.
 
