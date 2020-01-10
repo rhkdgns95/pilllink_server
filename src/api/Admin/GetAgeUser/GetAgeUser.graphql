@@ -1,0 +1,12 @@
+type GetAgeUserResponse {
+    ok: Boolean!
+    error: String
+    userAge: [UserAgeResponse]
+}
+type UserAgeResponse {
+    title: String!
+    count: Int!
+}
+type Query {
+    GetAgeUser: GetAgeUserResponse!
+}

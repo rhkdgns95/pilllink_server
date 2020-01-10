@@ -6,6 +6,7 @@ type GetAddressUserResponse {
 
 type Query {
   GetAddressUser: GetAddressUserResponse!
+  GetAgeUser: GetAgeUserResponse!
   GetGenders(dateFrom: Date, dateTo: Date): GetGendersResponse!
   GetNationalityUser: GetNationalityUserResponse!
   GetUserBoards: GetUserBoardsResponse!
@@ -15,6 +16,17 @@ type Query {
   EmailSignIn(userId: String!, password: String!): EmailSignInResponse!
   ForgotMyAccount(firstName: String!, lastName: String!, email: String!): ForgotMyAccountResponse!
   GetMyProfile: GetMyProfileResponse!
+}
+
+type GetAgeUserResponse {
+  ok: Boolean!
+  error: String
+  userAge: [UserAgeResponse]
+}
+
+type UserAgeResponse {
+  title: String!
+  count: Int!
 }
 
 type GetGendersResponse {
