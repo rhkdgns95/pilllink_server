@@ -43,7 +43,7 @@ const resolvers: Resolvers = {
                         const day: string = ("0" + (tmpEndDate.getDate())).substr(-2);
 
                         data.push({
-                            title: `${year}-${month}-${day}`,
+                            title: `${year}.${month}.${day}`,
                             count: medicalRecords.length
                         });
                     }

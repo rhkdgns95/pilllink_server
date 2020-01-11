@@ -79,7 +79,7 @@ const resolvers: Resolvers = {
                         // console.log("CURRENT YEAR: ", currentYear);
                         // console.log("CURRENT MONTH: ", currentMonth);
                         const tmpStartDate = new Date(currentYear, currentMonth, 1);
-                        const lastDate = new Date(currentYear, currentMonth + 1, 0, 23, 59, 59).getDate();
+                        const lastDate = new Date(currentYear, currentMonth + 1, 0,  23, 59, 59).getDate();
                         // console.log("lastDay: ", lastDate);
                         // console.log("LAST DATE: ",new Date(currentYear, currentMonth + 1, 0, 23, 59));
                         const tmpEndDate = new Date(currentYear, currentMonth, lastDate, 23, 59, 59);
