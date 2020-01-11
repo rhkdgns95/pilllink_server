@@ -36,6 +36,8 @@
 - [x] ConfirmRecord - perOneTimeCnt props added.
 - [x] Admin - GetUsers, GetNationalityUser / Utils - adminResolvers.
 - [x] Admin - GetAddressUser.
+- [x] Admin - GetAgeUser.
+- [x] Admin - GetPeriodMedicalRecord.
 - [] Admin - GetConfirmsFromAdmin.
 - [] Admin - GetUserBoards.
 

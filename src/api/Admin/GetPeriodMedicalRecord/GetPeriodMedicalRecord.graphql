@@ -1,0 +1,21 @@
+input PeriodDate {
+    year: Int!
+    month: Int!
+    day: Int!    
+}
+input GetPeriodMedicalRecordArgs {
+    startDate: PeriodDate!
+    endDate: PeriodDate!
+}
+type GetPeriodMedicalRecordData {
+    title: String!
+    count: Int!
+}
+type GetPeriodMedicalRecordResponse {
+    ok: Boolean!
+    error: String
+    data: [GetPeriodMedicalRecordData]
+}
+type Query {
+    GetPeriodMedicalRecord(date: GetPeriodMedicalRecordArgs!): GetPeriodMedicalRecordResponse! 
+}

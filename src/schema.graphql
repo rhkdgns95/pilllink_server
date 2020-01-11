@@ -9,6 +9,7 @@ type Query {
   GetAgeUser: GetAgeUserResponse!
   GetGenders(dateFrom: Date, dateTo: Date): GetGendersResponse!
   GetNationalityUser: GetNationalityUserResponse!
+  GetPeriodMedicalRecord(date: GetPeriodMedicalRecordArgs!): GetPeriodMedicalRecordResponse!
   GetUserBoards: GetUserBoardsResponse!
   GetUsers(skip: Int!, take: Int!): GetUsersResponse!
   GetMyBoards(take: Int!, skip: Int!): GetMyBoardsResponse!
@@ -55,6 +56,28 @@ type GetNationalityUserResponse {
 type Country {
   name: String!
   count: Int!
+}
+
+input PeriodDate {
+  year: Int!
+  month: Int!
+  day: Int!
+}
+
+input GetPeriodMedicalRecordArgs {
+  startDate: PeriodDate!
+  endDate: PeriodDate!
+}
+
+type GetPeriodMedicalRecordData {
+  title: String!
+  count: Int!
+}
+
+type GetPeriodMedicalRecordResponse {
+  ok: Boolean!
+  error: String
+  data: [GetPeriodMedicalRecordData]
 }
 
 type GetUserBoardsResponse {

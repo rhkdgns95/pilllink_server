@@ -76,17 +76,17 @@ const resolvers: Resolvers = {
                         if(month > 11) { // 12월 넘어가는 경우
                             currentYear += 1;
                         }
-                        console.log("CURRENT YEAR: ", currentYear);
-                        console.log("CURRENT MONTH: ", currentMonth);
+                        // console.log("CURRENT YEAR: ", currentYear);
+                        // console.log("CURRENT MONTH: ", currentMonth);
                         const tmpStartDate = new Date(currentYear, currentMonth, 1);
-                        const lastDate = new Date(currentYear, currentMonth + 1, 0, 23, 59).getDate();
-                        console.log("lastDay: ", lastDate);
-                        console.log("LAST DATE: ",new Date(currentYear, currentMonth + 1, 0, 23, 59));
-                        const tmpEndDate = new Date(currentYear, currentMonth, lastDate, 23, 59);
+                        const lastDate = new Date(currentYear, currentMonth + 1, 0, 23, 59, 59).getDate();
+                        // console.log("lastDay: ", lastDate);
+                        // console.log("LAST DATE: ",new Date(currentYear, currentMonth + 1, 0, 23, 59));
+                        const tmpEndDate = new Date(currentYear, currentMonth, lastDate, 23, 59, 59);
                         const users: User[] = await getRepository(User).find({
                             createdAt: Between(tmpStartDate, tmpEndDate)
                         });
-                        console.log("TOTAL USER: ", users);
+                        // console.log("TOTAL USER: ", users);
                         const men = users.filter(user => user.gender === "M").length;
                         const women = users.length - men;
                         monthGender = [
