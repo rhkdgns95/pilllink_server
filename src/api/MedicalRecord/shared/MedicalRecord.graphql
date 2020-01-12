@@ -95,4 +95,10 @@ type MedicalRecord {
     other_disinfectant: Boolean #소독약
     other_salineSolution: Boolean #식염수
     other_artificialTears: Boolean #인공눈물
+
+    other_mensoredamCream: Boolean #멘소래담 크림형
+    other_mensoredamSpray: Boolean # 멘소레담 스프레이형
+    other_painKillingPatch: Boolean #파스
+    other_painKillingPatchWater: Boolean #물파스
+
 }

@@ -180,7 +180,19 @@ class MedicalRecord extends BaseEntity {
     
     @Column({type: 'boolean', nullable: true})
     other_artificialTears: boolean // 인공눈물
-    
+
+    @Column({type: 'boolean', nullable: true})
+    other_mensoredamCream: boolean | null; // 멘소레담 크림형
+
+    @Column({type: 'boolean', nullable: true})
+    other_mensoredamSpray: boolean | null; // 멘소레담 스프레이형
+
+    @Column({type: 'boolean', nullable: true})
+    other_painKillingPatch: boolean | null; // 파스
+
+    @Column({type: 'boolean', nullable: true})
+    other_painKillingPatchWater: boolean | null; // 물파스
+
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updatedAt: string;
 }

@@ -38,6 +38,7 @@
 - [x] Admin - GetAddressUser.
 - [x] Admin - GetAgeUser.
 - [x] Admin - GetPeriodMedicalRecord.
+- [x] MedicalRecords - Other Category - Four Items.
 - [] Admin - GetConfirmsFromAdmin.
 - [] Admin - GetUserBoards.
 
